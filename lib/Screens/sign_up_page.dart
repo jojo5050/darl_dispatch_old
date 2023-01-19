@@ -238,7 +238,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           borderRadius: BorderRadius.circular(30),
                           side: BorderSide.none)),
                   onPressed: () {
-                  Routers.pushNamed(context, '/general_user_dashboard');
+                  Routers.pushNamed(context, '/success_screen');
                   },
                   child: Padding(
                     padding:

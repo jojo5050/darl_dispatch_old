@@ -54,6 +54,17 @@ flutter:
     - assets/images/loginbg.png
     - assets/images/signupbg.png
     - assets/images/generalDashBoardBg.png
+    - assets/images/backarrowicon.svg
+    - assets/images/pickupdashbg.png
+    - assets/images/carIcon.svg
+    - assets/images/payIcon.svg
+    - assets/images/rectCheckIcon.svg
+    - assets/images/roundcheckIcon.svg
+    - assets/images/registercarIcon.svg
+    - assets/images/personPlus.svg
+    - assets/images/personCheck.svg
+    - assets/images/openInfo.svg
+    - assets/images/messageIcon.svg
 
 
 

@@ -3,6 +3,7 @@ import 'package:darl_dispatch/AuthManagers/providers.dart';
 import 'package:darl_dispatch/Models/user.dart';
 import 'package:darl_dispatch/Screens/general_user_dashboard.dart';
 import 'package:darl_dispatch/Screens/onboarding_page.dart';
+import 'package:darl_dispatch/Utils/horizontalProgressBar.dart';
 import 'package:darl_dispatch/Utils/localstorage.dart';
 import 'package:darl_dispatch/Utils/routes.dart';
 import 'package:flutter/material.dart';
@@ -46,9 +47,26 @@ class _AppState extends State<App> {
                     return const OnboardingPage();
                   } else {
                     return Container(
-                      color: AppColors.primary,
-                      child: Center(
-                          child: Image.asset("assets/images/darllogo.png")),
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          SizedBox(height: 10.h,),
+                          Center(
+                              child: Image.asset("assets/images/darllogo.png")),
+
+                          SizedBox(height: 20.h,),
+                          Text("Loading...", style: TextStyle(
+                              color: Colors.black, fontSize: 15.sp,
+                              decoration: TextDecoration.none),),
+                          SizedBox(height: 1.h,),
+
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10.w),
+                            child: const HorizontalProgressBar(),
+                          ),
+                        ],
+                      ),
+
                     );
                   }
                 }
