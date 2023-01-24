@@ -65,7 +65,22 @@ flutter:
     - assets/images/personCheck.svg
     - assets/images/openInfo.svg
     - assets/images/messageIcon.svg
+    - assets/images/expenditureIcon.svg
+    - assets/images/moneyStraightIcon.svg
+    - assets/images/moneyWaveIcon.svg
+    - assets/images/payOutDollarIcon.svg
+    - assets/images/personEditIcon.svg
+    - assets/images/shippersIcon.svg
+    - assets/images/personShield.svg
 
+
+
+
+
+  fonts:
+    - family: Interfont
+      fonts:
+        - asset: fonts/interfont.ttf
 
 
   # list giving the asset and other descriptors for the font. For

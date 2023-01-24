@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../Utils/routers.dart';
+
 class PickUps extends StatefulWidget {
   const PickUps({Key? key}) : super(key: key);
 
@@ -15,8 +17,7 @@ class _PickUpsState extends State<PickUps> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
+      body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/pickupdashbg.png"),
@@ -58,9 +59,9 @@ class _PickUpsState extends State<PickUps> {
                     ],
                   ),
                 ),
-                SizedBox(
+               /* SizedBox(
                   height: 2.h,
-                ),
+                ),*/
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.w),
                   child: Row(
@@ -76,52 +77,57 @@ class _PickUpsState extends State<PickUps> {
                   ),
                 ),
                 SizedBox(
-                  height: 2.h,
+                  height: 1.h,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+                  padding: EdgeInsets.symmetric(horizontal: 8.w,),
                   child: Container(
                     height: 10.h,
-                    child: Card(
-                      elevation: 10,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                      child: Container(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 3.w,),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 1.h,),
-                                  Text(
-                                    "Register Load",
-                                    style: TextStyle(
-                                        color: AppColors.dashboardtextcolor,
-                                        fontSize: 19.sp,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  Text(
-                                    "Register or Assign loads to driver",
-                                    style: TextStyle(
-                                        color: AppColors.dashboardtextcolor,
-                                        fontSize: 15.sp),
-                                  ),
+                    child: InkWell(onTap: (){
 
-                                ],
-                              ),
+                      Routers.pushNamed(context, "/register_load");
+                    },
+                      child: Card(
+                        elevation: 10,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                        child: Container(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 3.w,),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 1.h,),
+                                    Text(
+                                      "Register Load",
+                                      style: TextStyle(
+                                          color: AppColors.dashboardtextcolor,
+                                          fontSize: 19.sp,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 1.h,
+                                    ),
+                                    Text(
+                                      "Register or Assign loads to driver",
+                                      style: TextStyle(
+                                          color: AppColors.dashboardtextcolor,
+                                          fontSize: 15.sp),
+                                    ),
 
-                              Container(
-                                child: SvgPicture.asset(
-                                    "assets/images/registercarIcon.svg"),
-                              )
-                            ],
+                                  ],
+                                ),
+
+                                Container(
+                                  child: SvgPicture.asset(
+                                      "assets/images/registercarIcon.svg"),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -129,7 +135,7 @@ class _PickUpsState extends State<PickUps> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+                  padding: EdgeInsets.symmetric(horizontal: 8.w,),
                   child: Container(
                     height: 10.h,
                     child: Card(
@@ -180,50 +186,54 @@ class _PickUpsState extends State<PickUps> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
                   child: Container(
                     height: 10.h,
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)
-                      ),
-                      elevation: 10,
-                      child: Container(
-                        decoration: BoxDecoration(),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 3.w),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 1.h,),
-                                  Text(
-                                    "Active Drivers",
-                                    style: TextStyle(
-                                        color: AppColors.dashboardtextcolor,
-                                        fontSize: 19.sp,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  Text(
-                                    "Drivers on Duty",
-                                    style: TextStyle(
-                                        color: AppColors.dashboardtextcolor,
-                                        fontSize: 15.sp),
-                                  ),
+                    child: InkWell(onTap: (){
+                      Routers.pushNamed(context, "/drivers_on_trip");
+                    },
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        elevation: 10,
+                        child: Container(
+                          decoration: BoxDecoration(),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 3.w),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 1.h,),
+                                    Text(
+                                      "Active Drivers",
+                                      style: TextStyle(
+                                          color: AppColors.dashboardtextcolor,
+                                          fontSize: 19.sp,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 1.h,
+                                    ),
+                                    Text(
+                                      "Drivers on Duty",
+                                      style: TextStyle(
+                                          color: AppColors.dashboardtextcolor,
+                                          fontSize: 15.sp),
+                                    ),
 
-                                ],
-                              ),
+                                  ],
+                                ),
 
-                              Container(
-                                child: SvgPicture.asset(
-                                    "assets/images/carIcon.svg"),
-                              )
-                            ],
+                                Container(
+                                  child: SvgPicture.asset(
+                                      "assets/images/carIcon.svg"),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -231,7 +241,7 @@ class _PickUpsState extends State<PickUps> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
                   child: Container(
                     height: 10.h,
                     child: Card(
@@ -284,7 +294,7 @@ class _PickUpsState extends State<PickUps> {
               ],
             ),
         ),
-      ),
+
     );
   }
 }

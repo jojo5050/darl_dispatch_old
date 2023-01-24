@@ -24,11 +24,16 @@ class _SuccessScreenState extends State<SuccessScreen> {
                 Text(
                   "Success!",
                   style: TextStyle(color: Colors.green,
-                      fontWeight: FontWeight.bold, fontSize: 30.sp, decoration: TextDecoration.none),
+                      fontWeight: FontWeight.bold, fontSize: 30.sp,
+                      fontFamily: "Interfont",
+                      decoration: TextDecoration.none),
                 ),
                 SizedBox(height: 1.h,),
                 Text("Your account has been created",
-                  style: TextStyle(color: Colors.black, fontSize: 16.sp, decoration: TextDecoration.none),),
+                  style: TextStyle(color: Colors.black,
+                      fontSize: 16.sp,
+                      fontFamily: "Interfont",
+                      decoration: TextDecoration.none),),
 
                 Stack(children: [
                   Container(

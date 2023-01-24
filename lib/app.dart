@@ -25,9 +25,9 @@ class _AppState extends State<App> {
     return MultiProvider(
       providers: Providers.getProvider,
       builder: (_, __) => MaterialApp(
-        title: "Darl Inventory System",
+        title: "Darl Dispatch",
         theme: ThemeData(
-          // fontFamily: 'Sofiapro',
+           fontFamily: 'Interfont',
           colorScheme: ColorScheme.fromSwatch().copyWith(
             primary: AppColors.primary,
           ),

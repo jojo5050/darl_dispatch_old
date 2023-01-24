@@ -14,8 +14,7 @@ class _CompanyUsersState extends State<CompanyUsers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
+      body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/pickupdashbg.png"),
@@ -57,9 +56,7 @@ class _CompanyUsersState extends State<CompanyUsers> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 2.h,
-              ),
+
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.w),
                 child: Row(
@@ -78,7 +75,7 @@ class _CompanyUsersState extends State<CompanyUsers> {
                 height: 2.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+                padding: EdgeInsets.symmetric(horizontal: 8.w,),
                 child: Container(
                   height: 10.h,
                   child: Card(
@@ -128,7 +125,7 @@ class _CompanyUsersState extends State<CompanyUsers> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+                padding: EdgeInsets.symmetric(horizontal: 8.w,),
                 child: Container(
                   height: 10.h,
                   child: Card(
@@ -178,7 +175,7 @@ class _CompanyUsersState extends State<CompanyUsers> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+                padding: EdgeInsets.symmetric(horizontal: 8.w,),
                 child: Container(
                   height: 10.h,
                   child: Card(
@@ -229,7 +226,7 @@ class _CompanyUsersState extends State<CompanyUsers> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+                padding: EdgeInsets.symmetric(horizontal: 8.w,),
                 child: Container(
                   height: 10.h,
                   child: Card(
@@ -282,7 +279,6 @@ class _CompanyUsersState extends State<CompanyUsers> {
             ],
           ),
         ),
-      ),
     );
   }
 }

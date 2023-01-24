@@ -57,9 +57,7 @@ class _VehiclesState extends State<Vehicles> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 2.h,
-            ),
+
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Row(
@@ -74,11 +72,9 @@ class _VehiclesState extends State<Vehicles> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 2.h,
-            ),
+
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+              padding: EdgeInsets.symmetric(horizontal: 8.w,),
               child: Container(
                 height: 10.h,
                 child: Card(
@@ -128,7 +124,7 @@ class _VehiclesState extends State<Vehicles> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Container(
                 height: 10.h,
                 child: Card(
@@ -179,7 +175,7 @@ class _VehiclesState extends State<Vehicles> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Container(
                 height: 10.h,
                 child: Card(

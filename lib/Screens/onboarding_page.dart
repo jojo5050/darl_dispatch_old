@@ -46,8 +46,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30)),
                     primary: Colors.transparent,
-                    onPrimary: Colors.white,
-                    splashFactory: InkRipple.splashFactory,
+                  //  onPrimary: Colors.white,
+                  //  splashFactory: InkRipple.splashFactory,
                     padding: EdgeInsets.symmetric(
                         horizontal: 25.w, vertical: 2.h)),
                 child: Text("Login", style: TextStyle(color: Colors.white, fontSize: 16.sp),),
@@ -63,8 +63,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   side: const BorderSide(color: Colors.white, width: 2.0),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
-                  onPrimary: Colors.white,
-                  splashFactory: InkRipple.splashFactory,
+                //  onPrimary: Colors.white,
+                //  splashFactory: InkRipple.splashFactory,
                   primary: Colors.transparent,
                   padding: EdgeInsets.symmetric(
                       horizontal: 23.w, vertical: 2.h),),

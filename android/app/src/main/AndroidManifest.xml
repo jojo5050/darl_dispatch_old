@@ -6,7 +6,7 @@
    <application
         android:label="darl_dispatch"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/darllogo">
         <activity
             android:name=".MainActivity"
             android:exported="true"

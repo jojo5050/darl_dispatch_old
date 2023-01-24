@@ -15,6 +15,7 @@ class _PayOutState extends State<PayOut> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/pickupdashbg.png"),
@@ -56,9 +57,7 @@ class _PayOutState extends State<PayOut> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 2.h,
-            ),
+
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Row(
@@ -77,7 +76,7 @@ class _PayOutState extends State<PayOut> {
               height: 2.h,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+              padding: EdgeInsets.symmetric(horizontal: 8.w,),
               child: Container(
                 height: 10.h,
                 child: Card(
@@ -127,7 +126,7 @@ class _PayOutState extends State<PayOut> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 1.h),
+              padding: EdgeInsets.symmetric(horizontal: 8.w,),
               child: Container(
                 height: 10.h,
                 child: Card(
