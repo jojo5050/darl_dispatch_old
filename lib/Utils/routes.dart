@@ -1,7 +1,8 @@
 import 'package:darl_dispatch/Screens/company_users_screen.dart';
 import 'package:darl_dispatch/Screens/drivers_on_trip_screen.dart';
-import 'package:darl_dispatch/Screens/general_user_dashboard.dart';
-import 'package:darl_dispatch/Screens/load_details.dart';
+import 'package:darl_dispatch/Screens/home_page.dart';
+import 'package:darl_dispatch/Screens/landing_page_manager.dart';
+import 'package:darl_dispatch/Screens/load_details_preview.dart';
 import 'package:darl_dispatch/Screens/login_page.dart';
 import 'package:darl_dispatch/Screens/payout_screen.dart';
 import 'package:darl_dispatch/Screens/pickups_screen.dart';
@@ -16,7 +17,10 @@ import 'package:flutter/material.dart';
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case '/general_user_dashboard':
-      return MaterialPageRoute(builder: (_) => const GeneralUserDashboard());
+      return MaterialPageRoute(builder: (_) => const HomePage());
+
+    case '/landingPage_manager':
+      return MaterialPageRoute(builder: (_) => const LandingPageManager());
 
     case '/login_page':
       return MaterialPageRoute(builder: (_) => const LoginPage());
@@ -40,7 +44,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const PickUps());
 
     case '/load_details':
-      return MaterialPageRoute(builder: (_) => const LoadDetails());
+      return MaterialPageRoute(builder: (_) => const LoadDetailsPreview());
 
     case '/payout':
       return MaterialPageRoute(builder: (_) => const PayOut());

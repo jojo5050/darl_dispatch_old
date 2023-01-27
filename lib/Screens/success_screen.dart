@@ -58,7 +58,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
                             borderRadius: BorderRadius.circular(30),
                             side: BorderSide.none)),
                     onPressed: () {
-                      Routers.pushNamed(context, '/general_user_dashboard');
+                      Routers.pushNamed(context, '/landingPage_manager');
                     },
                     child: Padding(
                       padding:

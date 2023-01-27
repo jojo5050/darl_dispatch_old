@@ -1,7 +1,10 @@
 import 'package:darl_dispatch/Constants/colors.dart';
+import 'package:darl_dispatch/Screens/drivers_on_trip_screen.dart';
+import 'package:darl_dispatch/Screens/register_load.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../Utils/routers.dart';
@@ -84,8 +87,8 @@ class _PickUpsState extends State<PickUps> {
                   child: Container(
                     height: 10.h,
                     child: InkWell(onTap: (){
-
-                      Routers.pushNamed(context, "/register_load");
+                      PersistentNavBarNavigator
+                          .pushNewScreen(context, screen: RegisterLoad());
                     },
                       child: Card(
                         elevation: 10,
@@ -190,7 +193,8 @@ class _PickUpsState extends State<PickUps> {
                   child: Container(
                     height: 10.h,
                     child: InkWell(onTap: (){
-                      Routers.pushNamed(context, "/drivers_on_trip");
+                     PersistentNavBarNavigator
+                         .pushNewScreen(context, screen: DriversOnTrip());
                     },
                       child: Card(
                         shape: RoundedRectangleBorder(

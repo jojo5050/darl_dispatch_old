@@ -1,17 +1,21 @@
 import 'package:darl_dispatch/Constants/colors.dart';
+import 'package:darl_dispatch/Screens/pickups_screen.dart';
+import 'package:darl_dispatch/Screens/vehicles_screen.dart';
 import 'package:darl_dispatch/Utils/routers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class GeneralUserDashboard extends StatefulWidget {
-  const GeneralUserDashboard({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  _GeneralUserDashboardState createState() => _GeneralUserDashboardState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,9 +91,9 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(horizontal: 10.w),
                                   child: Text(
-                                    "Drivers",
+                                    "Loads Delivered",
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 27.sp),
+                                        color: Colors.white, fontSize: 20.sp, fontWeight: FontWeight.bold),
                                   ),
                                 )),
                             SizedBox(
@@ -105,10 +109,9 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 20.sp),
                                   ),
-                                  const Icon(
-                                    Icons.directions_car,
-                                    color: Colors.white,
-                                    size: 40,
+                                  Container(
+                                    child: SvgPicture.asset(
+                                        "assets/images/roundcheckIcon.svg"),
                                   )
                                 ],
                               ),
@@ -140,9 +143,9 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(horizontal: 10.w),
                                   child: Text(
-                                    "Employees",
+                                    "Loads Cancelled",
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 27.sp),
+                                        color: Colors.white, fontSize: 20.sp, fontWeight: FontWeight.bold),
                                   ),
                                 )),
                             SizedBox(
@@ -154,13 +157,13 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "5",
+                                    "2",
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 20.sp),
                                   ),
                                   const Icon(
-                                    Icons.group,
-                                    color: Colors.white,
+                                    Icons.cancel,
+                                    color: Colors.indigo,
                                     size: 40,
                                   )
                                 ],
@@ -192,9 +195,9 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(horizontal: 10.w),
                                   child: Text(
-                                    "New Staff",
+                                    "Registered Loads",
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 27.sp),
+                                        color: Colors.white, fontSize: 20.sp, fontWeight: FontWeight.bold),
                                   ),
                                 )),
                             SizedBox(
@@ -206,14 +209,13 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "5",
+                                    "10",
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 20.sp),
                                   ),
-                                  const Icon(
-                                    Icons.person,
-                                    color: Colors.white,
-                                    size: 40,
+                                  Container(
+                                    child: SvgPicture.asset(
+                                        "assets/images/rectCheckIcon.svg"),
                                   )
                                 ],
                               ),
@@ -246,9 +248,9 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(horizontal: 10.w),
                                   child: Text(
-                                    "Trucks",
+                                    "Total CashOut",
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 27.sp),
+                                        color: Colors.white, fontSize: 20.sp, fontWeight: FontWeight.bold),
                                   ),
                                 )),
                             SizedBox(
@@ -260,14 +262,13 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    "5",
+                                    "NG 100,000",
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 20.sp),
                                   ),
-                                  const Icon(
-                                    Icons.local_shipping,
-                                    color: Colors.white,
-                                    size: 40,
+                                  Container(
+                                    child: SvgPicture.asset(
+                                        "assets/images/moneyStraightIcon.svg"),
                                   )
                                 ],
                               ),
@@ -276,7 +277,7 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                         ),
                       ),
                     ),
-                    Card(
+                    /*Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25.0),
                       ),
@@ -327,8 +328,8 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                           ],
                         ),
                       ),
-                    ),
-                    Card(
+                    ),*/
+                    /*Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25.0),
                       ),
@@ -380,7 +381,7 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                           ],
                         ),
                       ),
-                    ),
+                    ),*/
                   ],
                 ),
               ),
@@ -397,7 +398,8 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                   ),
                   children: [
                     InkWell(onTap: () {
-                      Routers.pushNamed(context, "/pickups");
+                     PersistentNavBarNavigator.pushNewScreen(
+                         context, screen: const PickUps());
                     },
                       child: Card(
                         elevation: 10,
@@ -409,9 +411,9 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                           child: Column(
                             children: [
                               SizedBox(height: 3.h,),
-                              const Center(child: Icon(Icons.local_shipping, color: Colors.black, size: 40,)),
+                              const Center(child: Icon(Icons.my_library_add_rounded, color: Colors.black, size: 40,)),
 
-                              Text("Pick Ups", style: TextStyle(color: Colors.black, fontSize: 14.sp),)
+                              Text("Load Registration", style: TextStyle(color: Colors.black, fontSize: 14.sp),)
 
                             ],
                           ),
@@ -419,7 +421,7 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                       ),
                     ),
                     InkWell(onTap: (){
-                      Routers.pushNamed(context, "/payout");
+
                     },
                       child: Card(
                         elevation: 10,
@@ -431,9 +433,9 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                             child: Column(
                               children: [
                                 SizedBox(height: 3.h,),
-                                const Center(child: Icon(Icons.credit_card, color: Colors.black, size: 40,)),
+                                const Center(child: Icon(Icons.local_shipping, color: Colors.black, size: 40,)),
 
-                                Text("Pay Out", style: TextStyle(color: Colors.black, fontSize: 14.sp),)
+                                Text("Vehicle Assigned", style: TextStyle(color: Colors.black, fontSize: 14.sp),)
 
                               ],
                             ),
@@ -441,7 +443,7 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                       ),
                     ),
                     InkWell(onTap: (){
-                      Routers.pushNamed(context, "/vehicles");
+                      PersistentNavBarNavigator.pushNewScreen(context, screen: Vehicles());
 
                     },
                       child: Card(
@@ -457,7 +459,7 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                                 const Center(
                                     child: Icon(Icons.directions_car, color: Colors.black, size: 40,)),
 
-                                Text("Vehicles", style: TextStyle(color: Colors.black, fontSize: 14.sp),)
+                                Text("Drivers", style: TextStyle(color: Colors.black, fontSize: 14.sp),)
 
                               ],
                             ),
@@ -465,7 +467,7 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                       ),
                     ),
                     InkWell(onTap: (){
-                      Routers.pushNamed(context, "/company_users");
+                    //  Routers.pushNamed(context, "/company_users");
                     },
                       child: Card(
                         elevation: 10,
@@ -477,9 +479,9 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                             child: Column(
                               children: [
                                 SizedBox(height: 3.h,),
-                                const Center(child: Icon(Icons.group, color: Colors.black, size: 40,)),
+                                const Center(child: Icon(Icons.assignment, color: Colors.black, size: 40,)),
 
-                                Text("Company Users", style: TextStyle(color: Colors.black, fontSize: 14.sp),)
+                                Text("Loads Assigned", style: TextStyle(color: Colors.black, fontSize: 14.sp),)
 
                               ],
                             ),
@@ -487,7 +489,7 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                       ),
                     ),
                     InkWell(onTap: (){
-                      Routers.pushNamed(context, "/report");
+
                     },
                       child: Card(
                         elevation: 10,
@@ -499,9 +501,9 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                             child: Column(
                               children: [
                                 SizedBox(height: 3.h,),
-                                const Center(child: Icon(Icons.file_copy_sharp, color: Colors.black, size: 40,)),
+                                const Center(child: Icon(Icons.check_circle, color: Colors.black, size: 40,)),
 
-                                Text("Report", style: TextStyle(color: Colors.black, fontSize: 14.sp),)
+                                Text("Loads Delivered", style: TextStyle(color: Colors.black, fontSize: 14.sp),)
 
                               ],
                             ),
@@ -509,7 +511,7 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                       ),
                     ),
                     InkWell(onTap: (){
-                      Routers.pushNamed(context, "/drivers_on_trip");
+
                     },
                       child: Card(
                         elevation: 10,
@@ -521,9 +523,9 @@ class _GeneralUserDashboardState extends State<GeneralUserDashboard> {
                             child: Column(
                               children: [
                                 SizedBox(height: 3.h,),
-                                const Center(child: Icon(Icons.person, color: Colors.black, size: 40,)),
+                                const Center(child: Icon(Icons.payments_outlined, color: Colors.black, size: 40,)),
 
-                                Text("Drivers on trip", style: TextStyle(color: Colors.black, fontSize: 14.sp),)
+                                Text("My Pay Roll", style: TextStyle(color: Colors.black, fontSize: 14.sp),)
 
                               ],
                             ),

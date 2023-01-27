@@ -1,7 +1,9 @@
 import 'package:darl_dispatch/Constants/colors.dart';
+import 'package:darl_dispatch/Screens/load_details_preview.dart';
 import 'package:darl_dispatch/Utils/routers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class RegisterLoad extends StatefulWidget {
@@ -12,6 +14,11 @@ class RegisterLoad extends StatefulWidget {
 }
 
 class _RegisterLoadState extends State<RegisterLoad> {
+    bool _isVisibleForPickup = false;
+    bool _nextIsVisibleForPickup = false;
+    bool _isVisibleForDrop = false;
+    bool _nextIsVisibleForDrop = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,7 +147,7 @@ class _RegisterLoadState extends State<RegisterLoad> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Shipper Details",
+                    "Broker Details",
                     style:
                     TextStyle(color: AppColors.dashboardtextcolor, fontWeight: FontWeight.bold,
                         fontSize: 16.sp, decoration: TextDecoration.none),
@@ -161,7 +168,7 @@ class _RegisterLoadState extends State<RegisterLoad> {
                             color: Colors.black, width: 1
                         )
                     ),
-                    hintText: "Enter shipper name",
+                    hintText: "Enter Broker name",
                     hintStyle: TextStyle(color: Colors.grey)
                 ),
 
@@ -180,7 +187,7 @@ class _RegisterLoadState extends State<RegisterLoad> {
                             color: Colors.black, width: 1
                         )
                     ),
-                    hintText: "Enter shipper email",
+                    hintText: "Enter Broker email",
                     hintStyle: TextStyle(color: Colors.grey)
                 ),
 
@@ -199,7 +206,7 @@ class _RegisterLoadState extends State<RegisterLoad> {
                             color: Colors.black, width: 1
                         )
                     ),
-                    hintText: "Enter shipper address",
+                    hintText: "Enter Broker address",
                     hintStyle: TextStyle(color: Colors.grey)
                 ),
 
@@ -218,11 +225,638 @@ class _RegisterLoadState extends State<RegisterLoad> {
                             color: Colors.black, width: 1
                         )
                     ),
-                    hintText: "Enter shipper phone",
+                    hintText: "Enter Broker phone",
                     hintStyle: TextStyle(color: Colors.grey)
                 ),
 
               ),
+
+              SizedBox(height: 4.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    "PickUp Details",
+                    style:
+                    TextStyle(color: AppColors.dashboardtextcolor, fontWeight: FontWeight.bold,
+                        fontSize: 16.sp, decoration: TextDecoration.none),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: 1.h,),
+              TextFormField(
+                style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                decoration: InputDecoration(
+                  //  border: InputBorder.none,
+
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+
+                        borderSide: const BorderSide(
+                            color: Colors.black, width: 1
+                        )
+                    ),
+                    hintText: "State",
+                    hintStyle: TextStyle(color: Colors.grey)
+                ),
+
+              ),
+
+              SizedBox(height: 1.h,),
+              TextFormField(
+                style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                decoration: InputDecoration(
+                  //  border: InputBorder.none,
+
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+
+                        borderSide: const BorderSide(
+                            color: Colors.black, width: 1
+                        )
+                    ),
+                    hintText: "City",
+                    hintStyle: TextStyle(color: Colors.grey)
+                ),
+
+              ),
+
+              SizedBox(height: 1.h,),
+              TextFormField(
+                style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                decoration: InputDecoration(
+                  //  border: InputBorder.none,
+
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+
+                        borderSide: const BorderSide(
+                            color: Colors.black, width: 1
+                        )
+                    ),
+                    hintText: "Zip Code",
+                    hintStyle: TextStyle(color: Colors.grey)
+                ),
+
+              ),
+
+              SizedBox(height: 1.h,),
+              TextFormField(
+                style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                decoration: InputDecoration(
+                  //  border: InputBorder.none,
+
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+
+                        borderSide: const BorderSide(
+                            color: Colors.black, width: 1
+                        )
+                    ),
+                    hintText: "Date ",
+                    hintStyle: TextStyle(color: Colors.grey)
+                ),
+
+              ),
+
+              SizedBox(height: 4.h,),
+              InkWell(onTap: (){
+                showHiddenPickupField();
+              },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.add, color: AppColors.dashboardtextcolor,),
+                    Text(
+                      "More PickUp",
+                      style:
+                      TextStyle(color: AppColors.dashboardtextcolor, fontWeight: FontWeight.bold,
+                          fontSize: 16.sp, decoration: TextDecoration.none),
+                    ),
+
+                  ],
+                ),
+              ),
+
+              SizedBox(height: 1.h,),
+              Visibility(
+                visible: _isVisibleForPickup,
+                child: Container(child: Column(children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        "PickUp 2",
+                        style:
+                        TextStyle(color: AppColors.dashboardtextcolor, fontWeight: FontWeight.bold,
+                            fontSize: 16.sp, decoration: TextDecoration.none),
+                      ),
+                    ],),
+                  TextFormField(
+                    style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                    decoration: InputDecoration(
+                      //  border: InputBorder.none,
+
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+
+                            borderSide: const BorderSide(
+                                color: Colors.black, width: 1
+                            )
+                        ),
+                        hintText: "State ",
+                        hintStyle: TextStyle(color: Colors.grey)
+                    ),
+
+                  ),
+                  SizedBox(height: 1.h,),
+
+                  TextFormField(
+                    style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                    decoration: InputDecoration(
+                      //  border: InputBorder.none,
+
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+
+                            borderSide: const BorderSide(
+                                color: Colors.black, width: 1
+                            )
+                        ),
+                        hintText: "City ",
+                        hintStyle: TextStyle(color: Colors.grey)
+                    ),
+
+                  ),
+                  SizedBox(height: 1.h,),
+
+                  TextFormField(
+                    style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                    decoration: InputDecoration(
+                      //  border: InputBorder.none,
+
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+
+                            borderSide: const BorderSide(
+                                color: Colors.black, width: 1
+                            )
+                        ),
+                        hintText: "Zip Code ",
+                        hintStyle: TextStyle(color: Colors.grey)
+                    ),
+
+                  ),
+
+                  SizedBox(height: 1.h,),
+                  TextFormField(
+                    style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                    decoration: InputDecoration(
+                      //  border: InputBorder.none,
+
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+
+                            borderSide: const BorderSide(
+                                color: Colors.black, width: 1
+                            )
+                        ),
+                        hintText: "Date",
+                        hintStyle: TextStyle(color: Colors.grey)
+                    ),
+
+                  ),
+
+                  SizedBox(height: 4.h,),
+                  InkWell(onTap: (){
+                    showNextHiddenPickupField();
+                  },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(Icons.add, color: AppColors.dashboardtextcolor,),
+                        Text(
+                          "More PickUp",
+                          style:
+                          TextStyle(color: AppColors.dashboardtextcolor, fontWeight: FontWeight.bold,
+                              fontSize: 16.sp, decoration: TextDecoration.none),
+                        ),
+
+                      ],
+                    ),
+                  ),
+
+                  Visibility(
+                    visible: _nextIsVisibleForPickup,
+                    child: Container(child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                          Text(
+                            "PickUp 3",
+                            style:
+                            TextStyle(color: AppColors.dashboardtextcolor, fontWeight: FontWeight.bold,
+                                fontSize: 16.sp, decoration: TextDecoration.none),
+                          ),
+                        ],),
+                        TextFormField(
+                          style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                          decoration: InputDecoration(
+                            //  border: InputBorder.none,
+
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+
+                                  borderSide: const BorderSide(
+                                      color: Colors.black, width: 1
+                                  )
+                              ),
+                              hintText: "State ",
+                              hintStyle: TextStyle(color: Colors.grey)
+                          ),
+
+                        ),
+                        SizedBox(height: 1.h,),
+
+                        TextFormField(
+                          style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                          decoration: InputDecoration(
+                            //  border: InputBorder.none,
+
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+
+                                  borderSide: const BorderSide(
+                                      color: Colors.black, width: 1
+                                  )
+                              ),
+                              hintText: "City ",
+                              hintStyle: TextStyle(color: Colors.grey)
+                          ),
+
+                        ),
+                        SizedBox(height: 1.h,),
+
+                        TextFormField(
+                          style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                          decoration: InputDecoration(
+                            //  border: InputBorder.none,
+
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+
+                                  borderSide: const BorderSide(
+                                      color: Colors.black, width: 1
+                                  )
+                              ),
+                              hintText: "Zip Code ",
+                              hintStyle: TextStyle(color: Colors.grey)
+                          ),
+
+                        ),
+
+                        SizedBox(height: 1.h,),
+                        TextFormField(
+                          style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                          decoration: InputDecoration(
+                            //  border: InputBorder.none,
+
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+
+                                  borderSide: const BorderSide(
+                                      color: Colors.black, width: 1
+                                  )
+                              ),
+                              hintText: "Date",
+                              hintStyle: TextStyle(color: Colors.grey)
+                          ),
+
+                        ),
+                      ],
+                    ),),
+                  )
+
+                ],),),
+              ),
+              SizedBox(height: 4.h,),
+
+              SizedBox(height: 2.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    "Drop Details",
+                    style:
+                    TextStyle(color: AppColors.dashboardtextcolor, fontWeight: FontWeight.bold,
+                        fontSize: 16.sp, decoration: TextDecoration.none),
+                  ),
+                ],
+              ),
+              SizedBox(height: 1.h,),
+              TextFormField(
+                style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                decoration: InputDecoration(
+                  //  border: InputBorder.none,
+
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+
+                        borderSide: const BorderSide(
+                            color: Colors.black, width: 1
+                        )
+                    ),
+                    hintText: "State",
+                    hintStyle: TextStyle(color: Colors.grey)
+                ),
+
+              ),
+
+              SizedBox(height: 1.h,),
+              TextFormField(
+                style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                decoration: InputDecoration(
+                  //  border: InputBorder.none,
+
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+
+                        borderSide: const BorderSide(
+                            color: Colors.black, width: 1
+                        )
+                    ),
+                    hintText: "City",
+                    hintStyle: TextStyle(color: Colors.grey)
+                ),
+
+              ),
+
+              SizedBox(height: 1.h,),
+              TextFormField(
+                style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                decoration: InputDecoration(
+                  //  border: InputBorder.none,
+
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+
+                        borderSide: const BorderSide(
+                            color: Colors.black, width: 1
+                        )
+                    ),
+                    hintText: "Zip Code",
+                    hintStyle: TextStyle(color: Colors.grey)
+                ),
+
+              ),
+
+              SizedBox(height: 1.h,),
+              TextFormField(
+                style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                decoration: InputDecoration(
+                  //  border: InputBorder.none,
+
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+
+                        borderSide: const BorderSide(
+                            color: Colors.black, width: 1
+                        )
+                    ),
+                    hintText: "Date ",
+                    hintStyle: TextStyle(color: Colors.grey)
+                ),
+
+              ),
+
+
+
+              SizedBox(height: 4.h,),
+              InkWell(onTap: (){
+                showHiddenDropField();
+                setState(() {
+
+                });
+              },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.add, color: AppColors.dashboardtextcolor,),
+                    Text(
+                      "More Drop",
+                      style:
+                      TextStyle(color: AppColors.dashboardtextcolor, fontWeight: FontWeight.bold,
+                          fontSize: 16.sp, decoration: TextDecoration.none),
+                    ),
+
+                  ],
+                ),
+              ),
+              Visibility(
+                visible: _isVisibleForDrop,
+                child: Container(child: Column(children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        "Drop 2",
+                        style:
+                        TextStyle(color: AppColors.dashboardtextcolor, fontWeight: FontWeight.bold,
+                            fontSize: 16.sp, decoration: TextDecoration.none),
+                      ),
+                    ],),
+                  TextFormField(
+                    style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                    decoration: InputDecoration(
+                      //  border: InputBorder.none,
+
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+
+                            borderSide: const BorderSide(
+                                color: Colors.black, width: 1
+                            )
+                        ),
+                        hintText: "State ",
+                        hintStyle: TextStyle(color: Colors.grey)
+                    ),
+
+                  ),
+                  SizedBox(height: 1.h,),
+
+                  TextFormField(
+                    style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                    decoration: InputDecoration(
+                      //  border: InputBorder.none,
+
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+
+                            borderSide: const BorderSide(
+                                color: Colors.black, width: 1
+                            )
+                        ),
+                        hintText: "City ",
+                        hintStyle: TextStyle(color: Colors.grey)
+                    ),
+
+                  ),
+                  SizedBox(height: 1.h,),
+
+                  TextFormField(
+                    style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                    decoration: InputDecoration(
+                      //  border: InputBorder.none,
+
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+
+                            borderSide: const BorderSide(
+                                color: Colors.black, width: 1
+                            )
+                        ),
+                        hintText: "Zip Code ",
+                        hintStyle: TextStyle(color: Colors.grey)
+                    ),
+
+                  ),
+
+                  SizedBox(height: 1.h,),
+                  TextFormField(
+                    style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                    decoration: InputDecoration(
+                      //  border: InputBorder.none,
+
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+
+                            borderSide: const BorderSide(
+                                color: Colors.black, width: 1
+                            )
+                        ),
+                        hintText: "Date",
+                        hintStyle: TextStyle(color: Colors.grey)
+                    ),
+
+                  ),
+
+                  SizedBox(height: 4.h,),
+                  InkWell(onTap: (){
+                    showNextHiddenDropField();
+                  },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(Icons.add, color: AppColors.dashboardtextcolor,),
+                        Text(
+                          "More Drop",
+                          style:
+                          TextStyle(color: AppColors.dashboardtextcolor, fontWeight: FontWeight.bold,
+                              fontSize: 16.sp, decoration: TextDecoration.none),
+                        ),
+
+                      ],
+                    ),
+                  ),
+
+                  Visibility(
+                    visible: _nextIsVisibleForDrop,
+                    child: Container(child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "Drop 3",
+                              style:
+                              TextStyle(color: AppColors.dashboardtextcolor, fontWeight: FontWeight.bold,
+                                  fontSize: 16.sp, decoration: TextDecoration.none),
+                            ),
+                          ],),
+                        TextFormField(
+                          style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                          decoration: InputDecoration(
+                            //  border: InputBorder.none,
+
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+
+                                  borderSide: const BorderSide(
+                                      color: Colors.black, width: 1
+                                  )
+                              ),
+                              hintText: "State ",
+                              hintStyle: TextStyle(color: Colors.grey)
+                          ),
+
+                        ),
+                        SizedBox(height: 1.h,),
+
+                        TextFormField(
+                          style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                          decoration: InputDecoration(
+                            //  border: InputBorder.none,
+
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+
+                                  borderSide: const BorderSide(
+                                      color: Colors.black, width: 1
+                                  )
+                              ),
+                              hintText: "City ",
+                              hintStyle: TextStyle(color: Colors.grey)
+                          ),
+
+                        ),
+                        SizedBox(height: 1.h,),
+
+                        TextFormField(
+                          style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                          decoration: InputDecoration(
+                            //  border: InputBorder.none,
+
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+
+                                  borderSide: const BorderSide(
+                                      color: Colors.black, width: 1
+                                  )
+                              ),
+                              hintText: "Zip Code ",
+                              hintStyle: TextStyle(color: Colors.grey)
+                          ),
+
+                        ),
+
+                        SizedBox(height: 1.h,),
+                        TextFormField(
+                          style: TextStyle(color: Colors.black, fontSize: 18.sp),
+                          decoration: InputDecoration(
+                            //  border: InputBorder.none,
+
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+
+                                  borderSide: const BorderSide(
+                                      color: Colors.black, width: 1
+                                  )
+                              ),
+                              hintText: "Date",
+                              hintStyle: TextStyle(color: Colors.grey)
+                          ),
+
+                        ),
+                      ],
+                    ),),
+                  )
+
+                ],),),
+              ),
+              SizedBox(height: 4.h,),
+
 
               SizedBox(height: 4.h,),
 
@@ -233,13 +867,13 @@ class _RegisterLoadState extends State<RegisterLoad> {
                           borderRadius: BorderRadius.circular(30),
                           side: BorderSide.none)),
                   onPressed: () {
-                    Routers.pushNamed(context, '/load_details');
+                    PersistentNavBarNavigator.pushNewScreen(context, screen: const LoadDetailsPreview());
                   },
                   child: Padding(
                     padding:
                     EdgeInsets.symmetric(horizontal: 25.w, vertical: 2.h),
                     child: Text(
-                      "Submit",
+                      "Continue",
                       style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
                     ),
                   )),
@@ -249,5 +883,30 @@ class _RegisterLoadState extends State<RegisterLoad> {
         ),
       ),
     );
+  }
+
+  void showHiddenPickupField() {
+    setState(() {
+      _isVisibleForPickup = !_isVisibleForPickup;
+    });
+
+  }
+
+  void showNextHiddenPickupField() {
+    setState(() {
+      _nextIsVisibleForPickup = !_nextIsVisibleForPickup;
+    });
+  }
+
+  void showHiddenDropField() {
+    setState(() {
+      _isVisibleForDrop = ! _isVisibleForDrop;
+    });
+  }
+
+  void showNextHiddenDropField() {
+    setState(() {
+      _nextIsVisibleForDrop = !_nextIsVisibleForDrop;
+    });
   }
 }

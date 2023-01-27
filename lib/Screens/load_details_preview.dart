@@ -1,16 +1,23 @@
 import 'package:darl_dispatch/Constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class LoadDetails extends StatefulWidget {
-  const LoadDetails({Key? key}) : super(key: key);
+class LoadDetailsPreview extends StatefulWidget {
+  const LoadDetailsPreview({Key? key}) : super(key: key);
 
   @override
-  _LoadDetailsState createState() => _LoadDetailsState();
+  _LoadDetailsPreviewState createState() => _LoadDetailsPreviewState();
 }
 
-class _LoadDetailsState extends State<LoadDetails> {
+class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
+
+  String dropDownValue = 'Abraham';
+  var items = [
+    'Abraham', 'Micheal', 'Jojo', 'Lawrence', 'Peter', 'John'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +41,9 @@ class _LoadDetailsState extends State<LoadDetails> {
                   height: 40,
                   width: 40,
                   decoration: BoxDecoration(
-                      color: Colors.blue[700],
+                      gradient: const LinearGradient(colors: [Colors.indigo, Colors.lightBlueAccent],
+                          begin: Alignment.centerLeft, end: Alignment.centerRight
+                      ),
                       borderRadius: BorderRadius.circular(15)),
                   child: PopupMenuButton(
                       color: Colors.black,
@@ -61,16 +70,16 @@ class _LoadDetailsState extends State<LoadDetails> {
                                       const Icon(
                                         Icons.edit,
                                         color: Colors.green,
-                                        size: 20,
+                                        size: 25,
                                       ),
                                       SizedBox(
-                                        width: 20,
+                                        width: 10,
                                       ),
                                       Text(
                                         "Edit",
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 14.sp,
+                                            fontSize: 16.sp,
                                             fontWeight: FontWeight.bold),
                                       ),
                                     ],
@@ -88,18 +97,18 @@ class _LoadDetailsState extends State<LoadDetails> {
                                   child: Row(
                                     children: [
                                       const Icon(
-                                        Icons.settings,
+                                        Icons.check_circle,
                                         color: Colors.green,
-                                        size: 20,
+                                        size: 25,
                                       ),
                                       const SizedBox(
-                                        width: 20,
+                                        width: 10,
                                       ),
                                       Text(
-                                        "Settings",
+                                        "Assigned Loads",
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 14.sp,
+                                            fontSize: 15.sp,
                                             fontWeight: FontWeight.bold),
                                       ),
                                     ],
@@ -107,6 +116,35 @@ class _LoadDetailsState extends State<LoadDetails> {
                                 ),
                               ),
                             ),
+                            PopupMenuItem(
+                          value: 1,
+                          child: Container(
+                            child: InkWell(
+                              onTap: () {
+                                //   Routers.pushNamed(context, '/faq');
+                              },
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.text_rotation_none,
+                                    color: Colors.green,
+                                    size: 25,
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    "N.A Loads ",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                           ]),
                 ),
               ]),
@@ -207,7 +245,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                         borderRadius: BorderRadius.circular(5)),
                     child: Container(
                       height: 50,
-                      width: MediaQuery.of(context).size.width / 2,
+                      width: MediaQuery.of(context).size.width / 1.8,
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 1.w,
@@ -259,7 +297,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                         borderRadius: BorderRadius.circular(5)),
                     child: Container(
                       height: 50,
-                      width: MediaQuery.of(context).size.width / 2,
+                      width: MediaQuery.of(context).size.width / 1.8,
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 1.w,
@@ -325,7 +363,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                         borderRadius: BorderRadius.circular(5)),
                     child: Container(
                       height: 50,
-                      width: MediaQuery.of(context).size.width / 2,
+                      width: MediaQuery.of(context).size.width / 1.8,
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 1.w,
@@ -391,7 +429,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                         borderRadius: BorderRadius.circular(5)),
                     child: Container(
                       height: 50,
-                      width: MediaQuery.of(context).size.width / 2,
+                      width: MediaQuery.of(context).size.width / 1.8,
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 1.w,
@@ -443,7 +481,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                         borderRadius: BorderRadius.circular(5)),
                     child: Container(
                       height: 50,
-                      width: MediaQuery.of(context).size.width / 2,
+                      width: MediaQuery.of(context).size.width / 1.8,
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 1.w,
@@ -468,7 +506,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Shipper Information",
+                    "Broker Information",
                     style: TextStyle(
                         color: AppColors.dashboardtextcolor,
                         fontWeight: FontWeight.bold,
@@ -498,7 +536,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                             children: [
                               SizedBox(height: 1.h,),
                               Text(
-                                "Shipper",
+                                "Broke",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15.sp,
@@ -525,7 +563,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                         borderRadius: BorderRadius.circular(5)),
                     child: Container(
                       height: 50,
-                      width: MediaQuery.of(context).size.width / 2,
+                      width: MediaQuery.of(context).size.width / 1.8,
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 1.w,
@@ -564,7 +602,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                               children: [
                                 SizedBox(height: 1.h,),
                                 Text(
-                                  "Shipper",
+                                  "Broker",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 15.sp,
@@ -591,7 +629,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                         borderRadius: BorderRadius.circular(5)),
                     child: Container(
                       height: 50,
-                      width: MediaQuery.of(context).size.width / 2,
+                      width: MediaQuery.of(context).size.width / 1.8,
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 1.w,
@@ -630,7 +668,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                             children: [
                               SizedBox(height: 1.h,),
                               Text(
-                                "Shipper",
+                                "Broker",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15.sp,
@@ -657,7 +695,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                         borderRadius: BorderRadius.circular(5)),
                     child: Container(
                       height: 50,
-                      width: MediaQuery.of(context).size.width / 2,
+                      width: MediaQuery.of(context).size.width / 1.8,
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 1.w,
@@ -696,7 +734,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                             children: [
                               SizedBox(height: 1.h,),
                               Text(
-                                "Shipper",
+                                "Broker",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15.sp,
@@ -723,7 +761,7 @@ class _LoadDetailsState extends State<LoadDetails> {
                         borderRadius: BorderRadius.circular(5)),
                     child: Container(
                       height: 50,
-                      width: MediaQuery.of(context).size.width / 2,
+                      width: MediaQuery.of(context).size.width / 1.8,
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 1.w,
@@ -742,6 +780,580 @@ class _LoadDetailsState extends State<LoadDetails> {
                   ),
                 ],
               ),
+
+              SizedBox(height: 4.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    "PickUp Details",
+                    style: TextStyle(
+                        color: AppColors.dashboardtextcolor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.sp,
+                        decoration: TextDecoration.none),
+                  ),
+                ],
+              ),
+              SizedBox(height: 1.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 4,
+                      color: Colors.black,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              SizedBox(height: 1.h,),
+                              Text(
+                                "State",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 1.8,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Text(
+                            "New York",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 4,
+                      color: Colors.black,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              SizedBox(height: 1.h,),
+                              Text(
+                                "City",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 1.8,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Bronx",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 4,
+                      color: Colors.black,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              SizedBox(height: 1.h,),
+                              Text(
+                                "ZipCode",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              /*Text(
+                                "Code",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),*/
+
+                            ],
+
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 1.8,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Text(
+                            "00234546",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 4,
+                      color: Colors.black,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              SizedBox(height: 1.h,),
+                              Text(
+                                "Date",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 1.8,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Text(
+                            "01/01/2023",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: 4.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    "Drop Details",
+                    style: TextStyle(
+                        color: AppColors.dashboardtextcolor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.sp,
+                        decoration: TextDecoration.none),
+                  ),
+                ],
+              ),
+              SizedBox(height: 1.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 4,
+                      color: Colors.black,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              SizedBox(height: 1.h,),
+                              Text(
+                                "State",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 1.8,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Text(
+                            "New York",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 4,
+                      color: Colors.black,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              SizedBox(height: 1.h,),
+                              Text(
+                                "City",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 1.8,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Bronx",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 4,
+                      color: Colors.black,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              SizedBox(height: 1.h,),
+                              Text(
+                                "ZipCode",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              /*Text(
+                                "Code",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),*/
+
+                            ],
+
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 1.8,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Text(
+                            "00234546",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 4,
+                      color: Colors.black,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              SizedBox(height: 1.h,),
+                              Text(
+                                "Date",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5)),
+                    child: Container(
+                      height: 50,
+                      width: MediaQuery.of(context).size.width / 1.8,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 1.w,
+                        ),
+                        child: Center(
+                          child: Text(
+                            "01/01/2023",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: 2.h,),
+              Row(mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text("Choose a Driver",
+                    style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
+                  SizedBox(width: 30,),
+                  DropdownButton<String>(
+                      value: dropDownValue, style: TextStyle(fontSize: 20, color: Colors.black,),
+                      icon: Icon(Icons.keyboard_arrow_down_outlined, color: Colors.black, size: 30,),
+                      items: items.map((String items) {
+                        return DropdownMenuItem(
+                            value: items, child: Text(items));
+                      }).toList(),
+                      onChanged: (newValue) {
+                        setState(() {
+                          dropDownValue = newValue!;
+                        });
+                      }),
+                ],),
+              SizedBox(height: 4.h,),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.red,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            side: BorderSide.none)),
+                    onPressed: () {
+                    Navigator.of(context).pop();
+                    },
+                    child: Padding(
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
+                      ),
+                    )),
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.indigo[500],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            side: BorderSide.none)),
+                    onPressed: () {
+                      PersistentNavBarNavigator.pushNewScreen(context, screen: const LoadDetailsPreview());
+                    },
+                    child: Padding(
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
+                      child: Text(
+                        "Assign",
+                        style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
+                      ),
+                    )),
+              ],),
+
+              SizedBox(height: 4.h,),
+
+
             ],
           ),
         ),

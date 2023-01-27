@@ -23,9 +23,12 @@ class _SignUpPageState extends State<SignUpPage> {
       body: SingleChildScrollView(
         child: Container(
           decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/signupbg.png"),
-                  fit: BoxFit.cover)),
+            gradient: LinearGradient(colors:
+            [Colors.lightBlueAccent, Colors.greenAccent],
+                begin: Alignment.centerLeft, end: Alignment.centerRight
+            ),
+
+          ),
           child: Column(
             children: [
               SizedBox(
@@ -49,7 +52,7 @@ class _SignUpPageState extends State<SignUpPage> {
               Text(
                 "Sign Up",
                 style: TextStyle(
-                    color: Colors.blue,
+                    color: Colors.black,
                     fontSize: 28.sp,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none),
@@ -60,7 +63,7 @@ class _SignUpPageState extends State<SignUpPage> {
               Text(
                 "Enter your details to create an account",
                 style: TextStyle(
-                    color: Colors.blue,
+                    color: Colors.black,
                     fontSize: 15.sp,
                     fontWeight: FontWeight.normal,
                     decoration: TextDecoration.none),
@@ -195,7 +198,7 @@ class _SignUpPageState extends State<SignUpPage> {
               Text(
                 "Minimum of 8 characters, Should contain at List 1 UpperCase" ,
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: Colors.black,
                   fontSize: 13.sp,
                 ),
               ),
@@ -257,7 +260,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   Text(
                     "Already have an account?",
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: Colors.black,
                       fontSize: 15.sp,
                     ),
                   ),
@@ -270,7 +273,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       },
                       child: Text(
                         "LOG IN",
-                        style: TextStyle(color: Colors.blue, fontSize: 15.sp),
+                        style: TextStyle(color: Colors.blue,
+                            fontSize: 15.sp, fontWeight: FontWeight.bold),
                       ))
                   //   Text("SIGN UP", style: TextStyle(color: Colors.blue, fontSize: 15.sp),)
                 ],

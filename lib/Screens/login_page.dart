@@ -18,9 +18,12 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: Container(
           decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/loginbg.png"),
-                  fit: BoxFit.cover)),
+            gradient: LinearGradient(colors:
+            [Colors.lightBlueAccent, Colors.greenAccent],
+                begin: Alignment.centerLeft, end: Alignment.centerRight
+            ),
+
+          ),
           child: Column(
             children: [
               SizedBox(
@@ -33,7 +36,8 @@ class _LoginPageState extends State<LoginPage> {
                   children:  [
                     IconButton(onPressed: (){
                       Navigator.of(context).pop();
-                    }, icon: const Icon(Icons.arrow_back_ios, size: 30, color: Colors.black,))
+                    },
+                        icon: const Icon(Icons.arrow_back_ios, size: 30, color: Colors.black,))
 
                   ],
                 ),
@@ -44,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
               Text(
                 "Login",
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 28.sp,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none),
@@ -55,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
               Text(
                 "Welcome Back",
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 15.sp,
                     fontWeight: FontWeight.normal,
                     decoration: TextDecoration.none),
@@ -123,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               TextButton(onPressed: (){},
                   child: Text("Forgot password?",
-                    style: TextStyle(color: Colors.grey, fontSize: 15.sp),)),
+                    style: TextStyle(color: Colors.black, fontSize: 15.sp),)),
               SizedBox(
                 height: 12.h,
               ),
@@ -134,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(30),
                           side: BorderSide.none)),
                   onPressed: () {
-                    Routers.pushNamed(context, '/general_user_dashboard');
+                    Routers.pushNamed(context, '/landingPage_manager');
                   },
                   child: Padding(
                     padding:
@@ -145,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   )),
               SizedBox(
-                height: 8.h,
+                height: 5.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -153,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
                   Text(
                     "Don't have an account?",
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: Colors.black,
                       fontSize: 15.sp,
                     ),
                   ),
@@ -166,7 +170,8 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       child: Text(
                         "SIGN UP",
-                        style: TextStyle(color: Colors.blue, fontSize: 15.sp),
+                        style: TextStyle(color: Colors.blue, fontSize: 15.sp,
+                            fontWeight: FontWeight.bold),
                       ))
                   //   Text("SIGN UP", style: TextStyle(color: Colors.blue, fontSize: 15.sp),)
                 ],

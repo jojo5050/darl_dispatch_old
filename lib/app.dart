@@ -1,8 +1,14 @@
 import 'package:darl_dispatch/AuthManagers/authProvider.dart';
 import 'package:darl_dispatch/AuthManagers/providers.dart';
 import 'package:darl_dispatch/Models/user.dart';
-import 'package:darl_dispatch/Screens/general_user_dashboard.dart';
+import 'package:darl_dispatch/Screens/company_users_screen.dart';
+import 'package:darl_dispatch/Screens/home_page.dart';
+import 'package:darl_dispatch/Screens/landing_page_manager.dart';
 import 'package:darl_dispatch/Screens/onboarding_page.dart';
+import 'package:darl_dispatch/Screens/pickups_screen.dart';
+import 'package:darl_dispatch/Screens/register_load.dart';
+import 'package:darl_dispatch/Screens/splash_screen.dart';
+import 'package:darl_dispatch/Screens/success_screen.dart';
 import 'package:darl_dispatch/Utils/horizontalProgressBar.dart';
 import 'package:darl_dispatch/Utils/localstorage.dart';
 import 'package:darl_dispatch/Utils/routes.dart';
@@ -41,33 +47,40 @@ class _AppState extends State<App> {
                     if (snapshot.data != null) {
                       // if(snapshot.data["token"] != null)
                       if (checkAuthenticated(snapshot.data)) {
-                        return GeneralUserDashboard();
+                        return LandingPageManager();
                       }
                     }
                     return const OnboardingPage();
                   } else {
-                    return Container(
+                    return SplashScreen();
+
+                    /*Container(
                       color: Colors.white,
-                      child: Column(
+
+                     *//* child: Column(
                         children: [
                           SizedBox(height: 10.h,),
                           Center(
                               child: Image.asset("assets/images/darllogo.png")),
 
-                          SizedBox(height: 20.h,),
-                          Text("Loading...", style: TextStyle(
-                              color: Colors.black, fontSize: 15.sp,
+                          SizedBox(height: 8.h,),
+                          Text("Smart, Fast, Reliable", style: TextStyle(
+                              color: Colors.black, fontSize: 20.sp, fontFamily: 'Interfont',
                               decoration: TextDecoration.none),),
                           SizedBox(height: 1.h,),
+                          Text("Logistics", style: TextStyle(
+                              color: Colors.black, fontSize: 26.sp, fontFamily: 'Interfont',
+                              decoration: TextDecoration.none),),
+                         *//**//* SizedBox(height: 1.h,),
 
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 10.w),
                             child: const HorizontalProgressBar(),
-                          ),
+                          ),*//**//*
                         ],
-                      ),
+                      ),*//*
 
-                    );
+                    );*/
                   }
                 }
 
@@ -75,6 +88,13 @@ class _AppState extends State<App> {
 
           },
         ),
+       /* initialRoute: "/",
+        routes: {
+          "/first": (final context) => const PickUps(),
+          "/second": (final context) => const RegisterLoad(),
+          "/third": (final context) => const CompanyUsers(),
+
+        },*/
         onGenerateRoute: generateRoute,
       ),
     );
