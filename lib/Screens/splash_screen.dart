@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Center(
             child: AnimatedTextKit(
               animatedTexts: [
-                TypewriterAnimatedText("Smart, Fast and Reliable",
+                TypewriterAnimatedText("Fast and Reliable",
                   textStyle: TextStyle(color: Colors.black, fontSize: 20.sp,
                       decoration: TextDecoration.none,
                       fontFamily: "Customfont") ),
@@ -44,6 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
         ],
       ),
     );
+
   }
 
 }

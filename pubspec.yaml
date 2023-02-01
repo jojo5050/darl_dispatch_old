@@ -37,6 +37,12 @@ dependencies:
   intl_phone_number_input: ^0.7.2
   persistent_bottom_nav_bar: ^5.0.2
   animated_text_kit: ^4.2.2
+  country_state_city_picker: ^1.2.8
+  calendar_date_picker2: ^0.3.7
+  localization: ^2.1.0
+  timeago: ^3.3.0
+  intl: ^0.17.0
+
 
 dev_dependencies:
   flutter_test:

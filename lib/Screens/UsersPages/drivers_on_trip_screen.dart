@@ -107,7 +107,7 @@ class _DriversOnTripState extends State<DriversOnTrip> {
                                   height: 1.h,
                                 ),
                                 Text(
-                                  "Reefers",
+                                  "Reefer",
                                   style: TextStyle(
                                       color: AppColors.dashboardtextcolor,
                                       fontSize: 15.sp),

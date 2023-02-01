@@ -1,7 +1,7 @@
-import 'package:darl_dispatch/Screens/active_loads_page.dart';
-import 'package:darl_dispatch/Screens/completed_loads_page.dart';
-import 'package:darl_dispatch/Screens/home_page.dart';
-import 'package:darl_dispatch/Screens/userProfile_page.dart';
+import 'package:darl_dispatch/Screens/UsersPages/active_loads_page.dart';
+import 'package:darl_dispatch/Screens/UsersPages/completed_loads_page.dart';
+import 'package:darl_dispatch/Screens/UsersPages/home_page.dart';
+import 'package:darl_dispatch/Screens/UsersPages/userProfile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';

@@ -1,13 +1,14 @@
-import 'package:darl_dispatch/Screens/company_users_screen.dart';
-import 'package:darl_dispatch/Screens/drivers_on_trip_screen.dart';
-import 'package:darl_dispatch/Screens/home_page.dart';
-import 'package:darl_dispatch/Screens/landing_page_manager.dart';
-import 'package:darl_dispatch/Screens/load_details_preview.dart';
+import 'package:darl_dispatch/Screens/DriversPages/driver_landing_manager.dart';
+import 'package:darl_dispatch/Screens/UsersPages/company_users_screen.dart';
+import 'package:darl_dispatch/Screens/UsersPages/drivers_on_trip_screen.dart';
+import 'package:darl_dispatch/Screens/UsersPages/home_page.dart';
+import 'package:darl_dispatch/Screens/UsersPages/landing_page_manager.dart';
+import 'package:darl_dispatch/Screens/UsersPages/payout_screen.dart';
+import 'package:darl_dispatch/Screens/UsersPages/pickups_screen.dart';
+import 'package:darl_dispatch/Screens/UsersPages/load_details_preview.dart';
 import 'package:darl_dispatch/Screens/login_page.dart';
-import 'package:darl_dispatch/Screens/payout_screen.dart';
-import 'package:darl_dispatch/Screens/pickups_screen.dart';
-import 'package:darl_dispatch/Screens/register_load.dart';
-import 'package:darl_dispatch/Screens/report.dart';
+import 'package:darl_dispatch/Screens/UsersPages/register_load.dart';
+import 'package:darl_dispatch/Screens/UsersPages/report.dart';
 import 'package:darl_dispatch/Screens/sign_up_page.dart';
 import 'package:darl_dispatch/Screens/success_screen.dart';
 import 'package:darl_dispatch/Screens/vehicles_screen.dart';
@@ -21,6 +22,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case '/landingPage_manager':
       return MaterialPageRoute(builder: (_) => const LandingPageManager());
+    case '/driver_landing_manager':
+      return MaterialPageRoute(builder: (_) => const DriverLandingManager());
 
     case '/login_page':
       return MaterialPageRoute(builder: (_) => const LoginPage());

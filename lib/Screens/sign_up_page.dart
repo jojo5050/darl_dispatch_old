@@ -27,7 +27,6 @@ class _SignUpPageState extends State<SignUpPage> {
             [Colors.lightBlueAccent, Colors.greenAccent],
                 begin: Alignment.centerLeft, end: Alignment.centerRight
             ),
-
           ),
           child: Column(
             children: [

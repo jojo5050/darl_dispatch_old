@@ -1,5 +1,7 @@
-import 'package:darl_dispatch/Constants/colors.dart';
-import 'package:darl_dispatch/Screens/pickups_screen.dart';
+
+import 'package:darl_dispatch/Screens/UsersPages/loads_assign.dart';
+import 'package:darl_dispatch/Screens/UsersPages/pickup_delivered.dart';
+import 'package:darl_dispatch/Screens/UsersPages/pickups_screen.dart';
 import 'package:darl_dispatch/Screens/vehicles_screen.dart';
 import 'package:darl_dispatch/Utils/routers.dart';
 import 'package:flutter/cupertino.dart';
@@ -421,7 +423,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     InkWell(onTap: (){
-
+                      PersistentNavBarNavigator.pushNewScreen(context, screen: Vehicles());
                     },
                       child: Card(
                         elevation: 10,
@@ -443,7 +445,6 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     InkWell(onTap: (){
-                      PersistentNavBarNavigator.pushNewScreen(context, screen: Vehicles());
 
                     },
                       child: Card(
@@ -467,7 +468,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     InkWell(onTap: (){
-                    //  Routers.pushNamed(context, "/company_users");
+                    PersistentNavBarNavigator.pushNewScreen(context, screen: LoadsAssigned());
                     },
                       child: Card(
                         elevation: 10,
@@ -489,7 +490,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     InkWell(onTap: (){
-
+                      PersistentNavBarNavigator.pushNewScreen(context, screen: PickUpDelivered());
                     },
                       child: Card(
                         elevation: 10,

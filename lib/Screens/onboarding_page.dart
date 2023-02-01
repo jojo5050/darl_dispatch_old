@@ -16,47 +16,56 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget build(BuildContext context) {
     return WillPopScope(
         onWillPop: willPopController,
-        child: Container(
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/onboardbg.png"), fit: BoxFit.cover)),
-
-          child: SingleChildScrollView(
-            child: Column(children: [
-              SizedBox(height: 12.h,),
-              Center(
-                child: Text("Welcome", style: TextStyle(color: Colors.white,
-                    fontSize: 31.sp, fontWeight: FontWeight.normal, fontFamily: 'Interfont',
-                    decoration: TextDecoration.none),),
-              ),
-              SizedBox(height: 1.h,),
-              Center(
-                child: Text("Fastest Logistics Company",
-                  style: TextStyle(color: Colors.white,
-                      fontSize: 16.sp, fontWeight: FontWeight.normal, fontFamily: 'Interfont',
+        child: Scaffold(
+          body: Container(
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/images/onboardbg.png"), fit: BoxFit.cover)),
+              child: Column(children: [
+                SizedBox(height: 12.h,),
+                Center(
+                  child: Text("Welcome", style: TextStyle(color: Colors.white,
+                      fontSize: 31.sp, fontWeight: FontWeight.normal, fontFamily: 'Interfont',
                       decoration: TextDecoration.none),),
-              ),
-              SizedBox(height: 55.h,),
-
-              ElevatedButton(
-                onPressed: () {
-                  Routers.pushNamed(context, "/sign_up_page");
+                ),
+                SizedBox(height: 1.h,),
+                Center(
+                  child: Text("Fastest Logistics Company",
+                    style: TextStyle(color: Colors.white,
+                        fontSize: 16.sp, fontWeight: FontWeight.normal, fontFamily: 'Interfont',
+                        decoration: TextDecoration.none),),
+                ),
+                SizedBox(height: 45.h,),
+                TextButton(onPressed: (){
+                  Routers.pushNamed(context, "/driver_landing_manager");
                 },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                //  onPrimary: Colors.white,
-                //  splashFactory: InkRipple.splashFactory,
-                  primary: Colors.blue,
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 20.w, vertical: 2.h),),
-                child: Text("Get Started",
-                  style: TextStyle(color: Colors.white,
-                      fontSize: 16.sp, fontWeight: FontWeight.bold),),
+                    child: Text("Driver Section",
+                      style: TextStyle(color: Colors.white,
+                          fontSize: 19.sp, fontWeight: FontWeight.bold),)),
+                SizedBox(height: 10.h,),
 
+                ElevatedButton(
+                  onPressed: () {
+                    Routers.pushNamed(context, "/sign_up_page");
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                  //  onPrimary: Colors.white,
+                  //  splashFactory: InkRipple.splashFactory,
+                    primary: Colors.blue,
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 20.w, vertical: 2.h),),
+                  child: Text("Get Started",
+                    style: TextStyle(color: Colors.white,
+                        fontSize: 16.sp, fontWeight: FontWeight.bold),),
+
+                ),
+                SizedBox(height: 2.h,),
+
+
+               ],
               ),
-             ],
-            ),
           ),
         ),
       );

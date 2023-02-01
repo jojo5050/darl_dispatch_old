@@ -1,12 +1,10 @@
 import 'package:darl_dispatch/AuthManagers/authProvider.dart';
 import 'package:darl_dispatch/AuthManagers/providers.dart';
 import 'package:darl_dispatch/Models/user.dart';
-import 'package:darl_dispatch/Screens/company_users_screen.dart';
-import 'package:darl_dispatch/Screens/home_page.dart';
-import 'package:darl_dispatch/Screens/landing_page_manager.dart';
+import 'package:darl_dispatch/Screens/UsersPages/company_users_screen.dart';
+import 'package:darl_dispatch/Screens/UsersPages/landing_page_manager.dart';
 import 'package:darl_dispatch/Screens/onboarding_page.dart';
-import 'package:darl_dispatch/Screens/pickups_screen.dart';
-import 'package:darl_dispatch/Screens/register_load.dart';
+import 'package:darl_dispatch/Screens/UsersPages/register_load.dart';
 import 'package:darl_dispatch/Screens/splash_screen.dart';
 import 'package:darl_dispatch/Screens/success_screen.dart';
 import 'package:darl_dispatch/Utils/horizontalProgressBar.dart';
@@ -15,6 +13,7 @@ import 'package:darl_dispatch/Utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
 
 import 'Constants/colors.dart';
 
@@ -38,6 +37,7 @@ class _AppState extends State<App> {
             primary: AppColors.primary,
           ),
         ),
+
         home: ResponsiveSizer(
           builder: (context, orientation, screenType) {
             return FutureBuilder(

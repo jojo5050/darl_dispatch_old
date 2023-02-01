@@ -1,13 +1,14 @@
 import 'package:darl_dispatch/Constants/colors.dart';
-import 'package:darl_dispatch/Screens/drivers_on_trip_screen.dart';
-import 'package:darl_dispatch/Screens/register_load.dart';
+import 'package:darl_dispatch/Screens/UsersPages/drivers_on_trip_screen.dart';
+import 'package:darl_dispatch/Screens/UsersPages/loads_assign.dart';
+import 'package:darl_dispatch/Screens/UsersPages/pickup_delivered.dart';
+import 'package:darl_dispatch/Screens/UsersPages/register_load.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../Utils/routers.dart';
 
 class PickUps extends StatefulWidget {
   const PickUps({Key? key}) : super(key: key);
@@ -141,47 +142,51 @@ class _PickUpsState extends State<PickUps> {
                   padding: EdgeInsets.symmetric(horizontal: 8.w,),
                   child: Container(
                     height: 10.h,
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)
-                      ),
-                      elevation: 10,
-                      child: Container(
-                        decoration: BoxDecoration(),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 3.w),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 1.h,),
-                                  Text(
-                                    "Loads Assigned",
-                                    style: TextStyle(
-                                        color: AppColors.dashboardtextcolor,
-                                        fontSize: 19.sp,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  Text(
-                                    "Loads already assigned",
-                                    style: TextStyle(
-                                        color: AppColors.dashboardtextcolor,
-                                        fontSize: 15.sp),
-                                  ),
+                    child: InkWell(onTap: () {
+                      PersistentNavBarNavigator.pushNewScreen(context, screen: LoadsAssigned());
+                    },
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        elevation: 10,
+                        child: Container(
+                          decoration: BoxDecoration(),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 3.w),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 1.h,),
+                                    Text(
+                                      "Loads Assigned",
+                                      style: TextStyle(
+                                          color: AppColors.dashboardtextcolor,
+                                          fontSize: 19.sp,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 1.h,
+                                    ),
+                                    Text(
+                                      "Loads already assigned",
+                                      style: TextStyle(
+                                          color: AppColors.dashboardtextcolor,
+                                          fontSize: 15.sp),
+                                    ),
 
-                                ],
-                              ),
+                                  ],
+                                ),
 
-                              Container(
-                                child: SvgPicture.asset(
-                                    "assets/images/rectCheckIcon.svg"),
-                              )
-                            ],
+                                Container(
+                                  child: SvgPicture.asset(
+                                      "assets/images/rectCheckIcon.svg"),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -248,47 +253,51 @@ class _PickUpsState extends State<PickUps> {
                   padding: EdgeInsets.symmetric(horizontal: 8.w),
                   child: Container(
                     height: 10.h,
-                    child: Card(
-                      elevation: 10,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                      child: Container(
-                        decoration: BoxDecoration(),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 3.w),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 1.h,),
-                                  Text(
-                                    "Pick Up Delivered",
-                                    style: TextStyle(
-                                        color: AppColors.dashboardtextcolor,
-                                        fontSize: 19.sp,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  Text(
-                                    "Completed Deliveries",
-                                    style: TextStyle(
-                                        color: AppColors.dashboardtextcolor,
-                                        fontSize: 15.sp),
-                                  ),
+                    child: InkWell(onTap: () {
+                      PersistentNavBarNavigator.pushNewScreen(context, screen: PickUpDelivered());
+                    },
+                      child: Card(
+                        elevation: 10,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)
+                          ),
+                        child: Container(
+                          decoration: BoxDecoration(),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 3.w),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 1.h,),
+                                    Text(
+                                      "Pick Up Delivered",
+                                      style: TextStyle(
+                                          color: AppColors.dashboardtextcolor,
+                                          fontSize: 19.sp,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: 1.h,
+                                    ),
+                                    Text(
+                                      "Completed Deliveries",
+                                      style: TextStyle(
+                                          color: AppColors.dashboardtextcolor,
+                                          fontSize: 15.sp),
+                                    ),
 
-                                ],
-                              ),
+                                  ],
+                                ),
 
-                              Container(
-                                child: SvgPicture.asset(
-                                    "assets/images/roundcheckIcon.svg"),
-                              )
-                            ],
+                                Container(
+                                  child: SvgPicture.asset(
+                                      "assets/images/roundcheckIcon.svg"),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
