@@ -1,20 +1,20 @@
-import 'package:darl_dispatch/Constants/colors.dart';
-import 'package:darl_dispatch/Screens/UsersPages/loads_assign_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import 'deliveredloads_main.dart';
+import '../../Constants/colors.dart';
+import '../UsersPages/deliveredloads_main.dart';
+import '../UsersPages/loads_assign_preview.dart';
 
-class CompletedLoadsPage extends StatefulWidget {
-  const CompletedLoadsPage({Key? key}) : super(key: key);
+class DriverLoadDeliveredPreview extends StatefulWidget {
+  const DriverLoadDeliveredPreview({Key? key}) : super(key: key);
 
   @override
-  _CompletedLoadsPageState createState() => _CompletedLoadsPageState();
+  _DriverLoadDeliveredPreviewState createState() => _DriverLoadDeliveredPreviewState();
 }
 
-class _CompletedLoadsPageState extends State<CompletedLoadsPage> {
+class _DriverLoadDeliveredPreviewState extends State<DriverLoadDeliveredPreview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +22,17 @@ class _CompletedLoadsPageState extends State<CompletedLoadsPage> {
           child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 8.h),
               child: Column(children: [
-                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                  Container(),
-
+                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: SvgPicture.asset(
+                      "assets/images/backarrowicon.svg",
+                      height: 25,
+                      width: 25,
+                    ),
+                  ),
                   Text("Delivered Loads",
                     style: TextStyle(
                         color: AppColors.dashboardtextcolor,
@@ -54,13 +61,12 @@ class _CompletedLoadsPageState extends State<CompletedLoadsPage> {
                           ),
                         ),
                         itemBuilder: (context) => [
-
                           PopupMenuItem(
                             value: 1,
                             child: Container(
                               child: InkWell(
                                 onTap: () {
-                                 PersistentNavBarNavigator.pushNewScreen(context, screen: LoadsAssignedPreview());
+                                  PersistentNavBarNavigator.pushNewScreen(context, screen: LoadsAssignedPreview());
                                 },
                                 child: Row(
                                   children: [
@@ -89,12 +95,12 @@ class _CompletedLoadsPageState extends State<CompletedLoadsPage> {
                             child: Container(
                               child: InkWell(
                                 onTap: () {
-                                  //   Routers.pushNamed(context, '/faq');
+
                                 },
                                 child: Row(
                                   children: [
                                     const Icon(
-                                      Icons.no_transfer,
+                                      Icons.text_rotation_none,
                                       color: Colors.green,
                                       size: 25,
                                     ),

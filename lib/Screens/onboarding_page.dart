@@ -47,6 +47,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ElevatedButton(
                   onPressed: () {
                     Routers.pushNamed(context, "/sign_up_page");
+
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(

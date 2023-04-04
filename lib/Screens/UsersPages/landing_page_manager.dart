@@ -1,10 +1,11 @@
-import 'package:darl_dispatch/Screens/UsersPages/active_loads_page.dart';
+import 'package:darl_dispatch/Screens/UsersPages/active_loads_preview.dart';
 import 'package:darl_dispatch/Screens/UsersPages/completed_loads_page.dart';
 import 'package:darl_dispatch/Screens/UsersPages/home_page.dart';
 import 'package:darl_dispatch/Screens/UsersPages/userProfile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class LandingPageManager extends StatefulWidget {
   const LandingPageManager({Key? key}) : super(key: key);
@@ -20,15 +21,17 @@ class _LandingPageManagerState extends State<LandingPageManager> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
+    /*return WillPopScope(
       onWillPop: willpopControl,
-      child: PersistentTabView(context,
+      child:*/ return PersistentTabView(context,
 
         controller: tabController,
         screens: _buildScreens(),
         items: _navBarsItems(),
+        confineInSafeArea: true,
         backgroundColor: Colors.indigo,
         resizeToAvoidBottomInset: true,
+        popActionScreens: PopActionScreensType.all,
         navBarHeight: MediaQuery.of(context).viewInsets.bottom > 0
             ? 0.0
             : kBottomNavigationBarHeight,
@@ -43,14 +46,14 @@ class _LandingPageManagerState extends State<LandingPageManager> {
           curve: Curves.ease,
         ),
 
-      ),
-    );
+      );
+   // );
   }
 
   List<Widget> _buildScreens() {
     return [
         HomePage(),
-        ActiveLoadPage(),
+        ActiveLoadPreview(),
         CompletedLoadsPage(),
         UserProfilePage()
     ];
@@ -66,7 +69,8 @@ class _LandingPageManagerState extends State<LandingPageManager> {
 
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.local_shipping, size: 30,),
-        title: "Active Loads", textStyle: const TextStyle(fontWeight: FontWeight.bold),
+        title: "Active",
+        textStyle: const TextStyle(fontWeight: FontWeight.bold),
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.black,
         /* routeAndNavigatorSettings: RouteAndNavigatorSettings(
@@ -80,7 +84,7 @@ class _LandingPageManagerState extends State<LandingPageManager> {
 
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.check_circle, size: 30,),
-        title: "Completed Loads", textStyle: const TextStyle(fontWeight: FontWeight.bold),
+        title: "Delivered", textStyle: const TextStyle(fontWeight: FontWeight.bold),
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.black,
         /* routeAndNavigatorSettings: RouteAndNavigatorSettings(

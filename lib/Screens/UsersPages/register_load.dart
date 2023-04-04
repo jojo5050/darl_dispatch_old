@@ -51,7 +51,7 @@ class _RegisterLoadState extends State<RegisterLoad> {
           padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
           child: Column(
             children: [
-              Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 InkWell(
                   onTap: () {
                     Navigator.of(context).pop();
@@ -62,23 +62,19 @@ class _RegisterLoadState extends State<RegisterLoad> {
                     width: 25,
                   ),
                 ),
-              ]),
-              SizedBox(
-                height: 2.h,
+                    Text(
+                      "LOAD REGISTRATION",
+                      style: TextStyle(
+                          color: AppColors.dashboardtextcolor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.sp,
+                          decoration: TextDecoration.none),
+                    ),
+                Container()
+
+              ]
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "LOAD REGISTRATION",
-                    style: TextStyle(
-                        color: AppColors.dashboardtextcolor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22.sp,
-                        decoration: TextDecoration.none),
-                  ),
-                ],
-              ),
+
               SizedBox(
                 height: 3.h,
               ),

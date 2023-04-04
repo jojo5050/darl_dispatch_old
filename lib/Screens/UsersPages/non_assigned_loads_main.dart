@@ -5,14 +5,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class LoadDetailsPreview extends StatefulWidget {
-  const LoadDetailsPreview({Key? key}) : super(key: key);
+class NonAssignedLoadsMain extends StatefulWidget {
+  const NonAssignedLoadsMain({Key? key}) : super(key: key);
 
   @override
-  _LoadDetailsPreviewState createState() => _LoadDetailsPreviewState();
+  _NonAssignedLoadsMainState createState() => _NonAssignedLoadsMainState();
 }
 
-class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
+class _NonAssignedLoadsMainState extends State<NonAssignedLoadsMain> {
 
   String dropDownValue = 'Abraham';
   var items = [
@@ -22,8 +22,7 @@ class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
   bool checkedValue = false;
 
   void _allowAssign() {
-    // method call here
-
+    // to do task here
   }
 
   @override
@@ -45,14 +44,17 @@ class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
                     width: 25,
                   ),
                 ),
+
                 Text(
-                  "Preview Details",
+                  "Load Details",
                   style: TextStyle(
                       color: AppColors.dashboardtextcolor,
                       fontWeight: FontWeight.bold,
-                      fontSize: 20.sp,
+                      fontSize: 22.sp,
                       decoration: TextDecoration.none),
                 ),
+
+
                 Container(
                   height: 40,
                   width: 40,
@@ -74,65 +76,36 @@ class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
                         ),
                       ),
                       itemBuilder: (context) => [
-                            PopupMenuItem(
-                              value: 1,
-                              child: Container(
-                                child: GestureDetector(
-                                  onTap: () {
-                                    //   Routers.pushNamed(context, "/settings");
-                                  },
-                                  child: Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.edit,
-                                        color: Colors.green,
-                                        size: 25,
-                                      ),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        "Edit",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ],
+                        PopupMenuItem(
+                          value: 1,
+                          child: Container(
+                            child: GestureDetector(
+                              onTap: () {
+                                //   Routers.pushNamed(context, "/settings");
+                              },
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.edit,
+                                    color: Colors.green,
+                                    size: 25,
                                   ),
-                                ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    "Edit",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
                               ),
                             ),
-                            PopupMenuItem(
-                              value: 1,
-                              child: Container(
-                                child: InkWell(
-                                  onTap: () {
-                                    //   Routers.pushNamed(context, '/faq');
-                                  },
-                                  child: Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.check_circle,
-                                        color: Colors.green,
-                                        size: 25,
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        "Assigned Loads",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 15.sp,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                            PopupMenuItem(
+                          ),
+                        ),
+                        PopupMenuItem(
                           value: 1,
                           child: Container(
                             child: InkWell(
@@ -142,7 +115,36 @@ class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
                               child: Row(
                                 children: [
                                   const Icon(
-                                    Icons.no_transfer,
+                                    Icons.check_circle,
+                                    color: Colors.green,
+                                    size: 25,
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    "Assigned Loads",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        PopupMenuItem(
+                          value: 1,
+                          child: Container(
+                            child: InkWell(
+                              onTap: () {
+                                //   Routers.pushNamed(context, '/faq');
+                              },
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.text_rotation_none,
                                     color: Colors.green,
                                     size: 25,
                                   ),
@@ -153,7 +155,7 @@ class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
                                     "N.A Loads ",
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 17.sp,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ],
@@ -161,17 +163,12 @@ class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
                             ),
                           ),
                         ),
-                          ]),
+                      ]),
                 ),
               ]),
-              SizedBox(
-                height: 2.h,
-              ),
 
+              SizedBox(height: 3.h,),
 
-              SizedBox(
-                height: 4.h,
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -491,7 +488,7 @@ class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
                 ],
               ),
 
-               SizedBox(height: 4.h),
+              SizedBox(height: 4.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -588,27 +585,27 @@ class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
                           horizontal: 1.w,
                         ),
                         child: Center(
-                            child: Column(
-                              children: [
-                                SizedBox(height: 1.h,),
-                                Text(
-                                  "Broker",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15.sp,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  "Email",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15.sp,
-                                      fontWeight: FontWeight.bold),
-                                ),
+                          child: Column(
+                            children: [
+                              SizedBox(height: 1.h,),
+                              Text(
+                                "Broker",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "Email",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
 
-                              ],
+                            ],
 
-                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -1072,7 +1069,7 @@ class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
                         ),
                         child: Center(
                           child: Text(
-                            "12:00",
+                            "09:99",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 17.sp,
@@ -1386,7 +1383,7 @@ class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
                         ),
                         child: Center(
                           child: Text(
-                            "03:00",
+                            "10:09",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 17.sp,
@@ -1417,40 +1414,39 @@ class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
                           dropDownValue = newValue!;
                         });
                       }),
-                         Checkbox(
-                             side: BorderSide(
-                                 color: Colors.black, width: 2),
-                              checkColor: Colors.black,
-                              activeColor: Colors.green,
-                             value: checkedValue,
-                             onChanged: (value){
-                               setState(() {
-                                  checkedValue = value ?? false;
-                               });
-                         },
-                         ),
 
+                  Checkbox(
+                      side: BorderSide(
+                          color: Colors.black, width: 2),
+                      checkColor: Colors.black,
+                      activeColor: Colors.green,
+                      value: checkedValue,   onChanged: (value){
+                    setState(() {
+                      checkedValue = value ?? false;
+                    });
+                  },
+                  )
                 ],),
               SizedBox(height: 4.h,),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        primary: Colors.red,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            side: BorderSide.none)),
-                    onPressed: () {
-                    Navigator.of(context).pop();
-                    },
-                    child: Padding(
-                      padding:
-                      EdgeInsets.symmetric(horizontal: 3.w, vertical: 2.h),
-                      child: Text(
-                        "Cancel",
-                        style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
-                      ),
-                    )),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.red,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              side: BorderSide.none)),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Padding(
+                        padding:
+                        EdgeInsets.symmetric(horizontal: 3.w, vertical: 2.h),
+                        child: Text(
+                          "Cancel",
+                          style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
+                        ),
+                      )),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           primary: Colors.indigo[500],
@@ -1469,24 +1465,24 @@ class _LoadDetailsPreviewState extends State<LoadDetailsPreview> {
                           style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
                         ),
                       )),
-                ElevatedButton(
+                  ElevatedButton(
+                      onPressed: checkedValue ? _allowAssign : null,
+                      style: ElevatedButton.styleFrom(
+                         onSurface: Colors.grey,
+                          primary: Colors.green,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              side: BorderSide.none)),
 
-                    onPressed: checkedValue ? _allowAssign : null,
-                    style: ElevatedButton.styleFrom(
-                        onSurface: Colors.grey,
-                        primary: Colors.green,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            side: BorderSide.none)),
-                    child: Padding(
-                      padding:
-                      EdgeInsets.symmetric(horizontal: 3.w, vertical: 2.h),
-                      child: Text(
-                        "Assign",
-                        style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
-                      ),
-                    )),
-              ],),
+                      child: Padding(
+                        padding:
+                        EdgeInsets.symmetric(horizontal: 3.w, vertical: 2.h),
+                        child: Text(
+                          "Assign",
+                          style: TextStyle(color: Colors.white, fontSize: 16.sp, fontWeight: FontWeight.bold),
+                        ),
+                      )),
+                ],),
 
               SizedBox(height: 4.h,),
 

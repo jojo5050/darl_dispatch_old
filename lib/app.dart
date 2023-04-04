@@ -16,6 +16,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 
 import 'Constants/colors.dart';
+import 'Screens/UsersPages/pickups_screen.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -40,7 +41,9 @@ class _AppState extends State<App> {
 
         home: ResponsiveSizer(
           builder: (context, orientation, screenType) {
-            return FutureBuilder(
+            return const SplashScreen();
+
+         /*   FutureBuilder(
                 future: fetchConfirmationData(context),
                 builder: (buildContext, snapshot) {
                   if (snapshot.hasData) {
@@ -54,47 +57,20 @@ class _AppState extends State<App> {
                   } else {
                     return SplashScreen();
 
-                    /*Container(
-                      color: Colors.white,
-
-                     *//* child: Column(
-                        children: [
-                          SizedBox(height: 10.h,),
-                          Center(
-                              child: Image.asset("assets/images/darllogo.png")),
-
-                          SizedBox(height: 8.h,),
-                          Text("Smart, Fast, Reliable", style: TextStyle(
-                              color: Colors.black, fontSize: 20.sp, fontFamily: 'Interfont',
-                              decoration: TextDecoration.none),),
-                          SizedBox(height: 1.h,),
-                          Text("Logistics", style: TextStyle(
-                              color: Colors.black, fontSize: 26.sp, fontFamily: 'Interfont',
-                              decoration: TextDecoration.none),),
-                         *//**//* SizedBox(height: 1.h,),
-
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10.w),
-                            child: const HorizontalProgressBar(),
-                          ),*//**//*
-                        ],
-                      ),*//*
-
-                    );*/
                   }
                 }
 
-                );
+                );*/
 
           },
         ),
-       /* initialRoute: "/",
+        initialRoute: "/",
         routes: {
           "/first": (final context) => const PickUps(),
           "/second": (final context) => const RegisterLoad(),
           "/third": (final context) => const CompanyUsers(),
 
-        },*/
+        },
         onGenerateRoute: generateRoute,
       ),
     );

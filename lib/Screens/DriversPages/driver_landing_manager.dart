@@ -1,5 +1,4 @@
 
-import 'package:darl_dispatch/Screens/DriversPages/dr_load_delivered.dart';
 import 'package:darl_dispatch/Screens/DriversPages/driver_home.dart';
 import 'package:darl_dispatch/Screens/DriversPages/driver_profile.dart';
 import 'package:darl_dispatch/Screens/UsersPages/completed_loads_page.dart';
@@ -8,6 +7,8 @@ import 'package:darl_dispatch/Screens/UsersPages/userProfile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+
+import 'dr_loadDelivered_preview.dart';
 
 class DriverLandingManager extends StatefulWidget {
   const DriverLandingManager({Key? key}) : super(key: key);
@@ -21,9 +22,7 @@ class _DriverLandingManagerState extends State<DriverLandingManager> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: willpopControl,
-      child: PersistentTabView(context,
+    return PersistentTabView(context,
 
         controller: tabController,
         screens: _buildScreens(),
@@ -44,14 +43,14 @@ class _DriverLandingManagerState extends State<DriverLandingManager> {
           curve: Curves.ease,
         ),
 
-      ),
-    );
+      );
+
   }
 
   List<Widget> _buildScreens() {
     return [
       DriverHome(),
-      DriverLoadDelivered(),
+      DriverLoadDeliveredPreview(),
       DriverProfile()
     ];
   }
@@ -67,7 +66,7 @@ class _DriverLandingManagerState extends State<DriverLandingManager> {
 
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.check_circle, size: 30,),
-        title: "Completed Loads", textStyle: const TextStyle(fontWeight: FontWeight.bold),
+        title: "Delivered", textStyle: const TextStyle(fontWeight: FontWeight.bold),
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.black,
         /* routeAndNavigatorSettings: RouteAndNavigatorSettings(
@@ -96,36 +95,4 @@ class _DriverLandingManagerState extends State<DriverLandingManager> {
     ];
   }
 
-  Future<bool> willpopControl() async {
-    return (await showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        //  title: new Text('Are you sure?'),
-        content: new Text('Do you want to exit the App'),
-        actions: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(false),
-                child: new Text('No'),
-              ),
-              TextButton(
-                onPressed: () => exitApp(),
-                child: new Text('Yes'),
-              ),
-            ],
-          ),
-        ],
-      ),
-    )) ??
-        false;
-  }
-
-  exitApp() {
-    Future.delayed(const Duration(milliseconds: 1000), () {
-      SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-    });
-
-  }
 }

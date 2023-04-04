@@ -1,13 +1,14 @@
 import 'package:darl_dispatch/Screens/DriversPages/availabe_vehicles.dart';
+import 'package:darl_dispatch/Screens/UsersPages/allDispatchers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../UsersPages/loads_assign.dart';
-import '../UsersPages/pickup_delivered.dart';
-import '../UsersPages/pickups_screen.dart';
-import '../vehicles_screen.dart';
+import '../UsersPages/loads_assign_preview.dart';
+import 'dr_loadDelivered_preview.dart';
+
+
 
 class DriverHome extends StatefulWidget {
   const DriverHome({Key? key}) : super(key: key);
@@ -292,7 +293,7 @@ class _DriverHomeState extends State<DriverHome> {
                   ),
                     children: [
                       InkWell(onTap: (){
-                        PersistentNavBarNavigator.pushNewScreen(context, screen: LoadsAssigned());
+                        PersistentNavBarNavigator.pushNewScreen(context, screen: LoadsAssignedPreview());
                       },
                         child: Card(
                             elevation: 10,
@@ -314,7 +315,7 @@ class _DriverHomeState extends State<DriverHome> {
                         ),
                       ),
                       InkWell(onTap: (){
-                        PersistentNavBarNavigator.pushNewScreen(context, screen: PickUpDelivered());
+                        PersistentNavBarNavigator.pushNewScreen(context, screen: DriverLoadDeliveredPreview());
                       },
                         child: Card(
                             elevation: 10,
@@ -358,7 +359,7 @@ class _DriverHomeState extends State<DriverHome> {
                         ),
                       ),
                       InkWell(onTap: (){
-
+                        PersistentNavBarNavigator.pushNewScreen(context, screen: AllDispatcher());
                       },
                         child: Card(
                             elevation: 10,

@@ -1,9 +1,10 @@
 
-import 'package:darl_dispatch/Screens/UsersPages/loads_assign.dart';
-import 'package:darl_dispatch/Screens/UsersPages/pickup_delivered.dart';
+import 'package:darl_dispatch/Screens/DriversPages/allDrivers.dart';
+import 'package:darl_dispatch/Screens/DriversPages/dr_loadDelivered_preview.dart';
+import 'package:darl_dispatch/Screens/UsersPages/delivered_loads_preview.dart';
+import 'package:darl_dispatch/Screens/UsersPages/loads_assign_preview.dart';
 import 'package:darl_dispatch/Screens/UsersPages/pickups_screen.dart';
 import 'package:darl_dispatch/Screens/vehicles_screen.dart';
-import 'package:darl_dispatch/Utils/routers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -279,111 +280,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    /*Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                      ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            gradient: const LinearGradient(colors:
-                            [Colors.lightBlueAccent, Colors.greenAccent],
-                                begin: Alignment.centerLeft, end: Alignment.centerRight
-                            ),
-                            borderRadius: BorderRadius.circular(25)),
-                        width: 80.w,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 2.h,
-                            ),
-                            Align(
-                                alignment: Alignment.centerLeft,
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10.w),
-                                  child: Text(
-                                    "Trailers",
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 27.sp),
-                                  ),
-                                )),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10.w),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "5",
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 20.sp),
-                                  ),
-                                  const Icon(
-                                    Icons.local_shipping_outlined,
-                                    color: Colors.white,
-                                    size: 40,
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),*/
-                    /*Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                      ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            gradient: const LinearGradient(colors:
-                            [Colors.purple, Colors.deepPurpleAccent],
-                                begin: Alignment.centerLeft, end: Alignment.centerRight
-                            ),
-                            color: Colors.purple,
-                            borderRadius: BorderRadius.circular(25)),
-                        width: 80.w,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 2.h,
-                            ),
-                            Align(
-                                alignment: Alignment.centerLeft,
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10.w),
-                                  child: Text(
-                                    "Income",
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 27.sp),
-                                  ),
-                                )),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10.w),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "\$ 200",
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 20.sp),
-                                  ),
-                                  const Icon(
-                                    Icons.credit_card,
-                                    color: Colors.white,
-                                    size: 40,
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),*/
                   ],
                 ),
               ),
@@ -401,7 +297,10 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     InkWell(onTap: () {
                      PersistentNavBarNavigator.pushNewScreen(
-                         context, screen: const PickUps());
+                         context, screen: const PickUps(),
+
+
+                     );
                     },
                       child: Card(
                         elevation: 10,
@@ -445,7 +344,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     InkWell(onTap: (){
-
+                      PersistentNavBarNavigator.pushNewScreen(context, screen: AllDrivers());
                     },
                       child: Card(
                         elevation: 10,
@@ -468,7 +367,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     InkWell(onTap: (){
-                    PersistentNavBarNavigator.pushNewScreen(context, screen: LoadsAssigned());
+                    PersistentNavBarNavigator.pushNewScreen(context, screen: LoadsAssignedPreview());
                     },
                       child: Card(
                         elevation: 10,
@@ -490,7 +389,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     InkWell(onTap: (){
-                      PersistentNavBarNavigator.pushNewScreen(context, screen: PickUpDelivered());
+                      PersistentNavBarNavigator.pushNewScreen(context, screen: DeliveredLoadsPreview());
                     },
                       child: Card(
                         elevation: 10,

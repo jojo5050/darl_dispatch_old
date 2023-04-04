@@ -14,223 +14,432 @@ class _VehiclesState extends State<Vehicles> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-        image: DecorationImage(
-        image: AssetImage("assets/images/pickupdashbg.png"),
-    fit: BoxFit.cover),
-      ),
-
+      backgroundColor: Colors.lightGreenAccent,
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 8.h),
         child: Column(
-          children: [
-            SizedBox(
-              height: 10.h,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                InkWell(onTap: (){
-                  Navigator.of(context).pop();
-                },
-                  child: SvgPicture.asset(
-                    "assets/images/backarrowicon.svg",
-                    height: 25,
-                    width: 25,
+            children: [
+                 Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                  InkWell(onTap: (){
+                    Navigator.of(context).pop();
+                  },
+                    child: SvgPicture.asset(
+                      "assets/images/backarrowicon.svg",
+                      height: 25,
+                      width: 25,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 3.h,
-                ),
-              ]),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+
                   Text(
-                    "Hi Joshua",
+                    "Assigned Vehicles",
                     style:
                     TextStyle(color: AppColors.dashboardtextcolor,
-                        fontSize: 16.sp, decoration: TextDecoration.none),
+                        fontSize: 20.sp, decoration: TextDecoration.none, fontWeight: FontWeight.bold),
                   ),
-                ],
-              ),
-            ),
 
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "Vehicles",
-                    style:
-                    TextStyle(color: AppColors.dashboardtextcolor,
-                        fontSize: 25.sp, decoration: TextDecoration.none),
+                  Container()
+
+                ]),
+              SizedBox(height: 3.h,),
+
+              Container(
+                  height: 13.h,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    elevation: 10,
+                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 3.w),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(height: 2.h,),
+                                Row(mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "NUM PLATE:",
+                                      style: TextStyle(
+                                          color: AppColors.dashboardtextcolor,
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(width: 2.w,),
+                                    Text(
+                                      " 123458",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+
+                                ),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Row(mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "TRAILER NO:",
+                                      style: TextStyle(
+                                          color: AppColors.dashboardtextcolor,
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(width: 2.w,),
+                                    Text(
+                                      " 123458",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 1.h,),
+                                Row(mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Assigned to:",
+                                      style: TextStyle(
+                                          color: AppColors.dashboardtextcolor,
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(width: 2.w,),
+                                    Text(
+                                      " Mohammed",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                          ),
+                        ),
+                        PopupMenuButton(
+                            color: Colors.black,
+                            elevation: 20,
+                            shape: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                            icon: const Center(
+                              child: Icon(
+                                Icons.more_vert,
+                                color: Colors.black,
+                                size: 30,
+                              ),
+                            ),
+                            itemBuilder: (context) => [
+                              PopupMenuItem(
+                                value: 1,
+                                child: Container(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      //   Routers.pushNamed(context, "/settings");
+                                    },
+                                    child: Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.add_task_outlined,
+                                          color: Colors.green,
+                                          size: 20,
+                                        ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        Text(
+                                          "Re-Assign",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ]),
+                      ],
+                    ),
                   ),
-                ],
-              ),
-            ),
-
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w,),
-              child: Container(
-                height: 10.h,
+                ),
+              Container(
+                height: 13.h,
                 child: Card(
-                  elevation: 10,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)
                   ),
-                  child: Container(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 3.w,),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
+                  elevation: 10,
+                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 3.w),
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(height: 1.h,),
-                              Text(
-                                "Register Vehicle",
-                                style: TextStyle(
-                                    color: AppColors.dashboardtextcolor,
-                                    fontSize: 19.sp,
-                                    fontWeight: FontWeight.bold),
+                              SizedBox(height: 2.h,),
+                              Row(mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "NUM PLATE:",
+                                    style: TextStyle(
+                                        color: AppColors.dashboardtextcolor,
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(width: 2.w,),
+                                  Text(
+                                    " 123458",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+
                               ),
                               SizedBox(
                                 height: 1.h,
                               ),
-                              Text(
-                                "Register or Assign vehicle",
-                                style: TextStyle(
-                                    color: AppColors.dashboardtextcolor,
-                                    fontSize: 15.sp),
+                              Row(mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "TRAILER NO:",
+                                    style: TextStyle(
+                                        color: AppColors.dashboardtextcolor,
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(width: 2.w,),
+                                  Text(
+                                    " 123458",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 1.h,),
+                              Row(mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Assigned to:",
+                                    style: TextStyle(
+                                        color: AppColors.dashboardtextcolor,
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(width: 2.w,),
+                                  Text(
+                                    " Mohammed",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
                               ),
 
                             ],
                           ),
-
-                          Container(
-                            child: SvgPicture.asset(
-                                "assets/images/registercarIcon.svg"),
-                          )
-                        ],
+                        ),
                       ),
-                    ),
+                      PopupMenuButton(
+                          color: Colors.black,
+                          elevation: 20,
+                          shape: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          icon: const Center(
+                            child: Icon(
+                              Icons.more_vert,
+                              color: Colors.black,
+                              size: 30,
+                            ),
+                          ),
+                          itemBuilder: (context) => [
+                            PopupMenuItem(
+                              value: 1,
+                              child: Container(
+                                child: GestureDetector(
+                                  onTap: () {
+                                    //   Routers.pushNamed(context, "/settings");
+                                  },
+                                  child: Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.add_task_outlined,
+                                        color: Colors.green,
+                                        size: 20,
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      Text(
+                                        "Re-Assign",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16.sp,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ]),
+                    ],
                   ),
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: Container(
-                height: 10.h,
+              Container(
+                height: 13.h,
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)
                   ),
                   elevation: 10,
-                  child: Container(
-                    decoration: BoxDecoration(),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 3.w),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
+                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 3.w),
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(height: 1.h,),
-                              Text(
-                                "Vehicles Assigned",
-                                style: TextStyle(
-                                    color: AppColors.dashboardtextcolor,
-                                    fontSize: 19.sp,
-                                    fontWeight: FontWeight.bold),
+                              SizedBox(height: 2.h,),
+                              Row(mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "NUM PLATE:",
+                                    style: TextStyle(
+                                        color: AppColors.dashboardtextcolor,
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(width: 2.w,),
+                                  Text(
+                                    " 123458",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+
                               ),
                               SizedBox(
                                 height: 1.h,
                               ),
-                              Text(
-                                "Vehicles already assigned",
-                                style: TextStyle(
-                                    color: AppColors.dashboardtextcolor,
-                                    fontSize: 15.sp),
+                              Row(mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "TRAILER NO:",
+                                    style: TextStyle(
+                                        color: AppColors.dashboardtextcolor,
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(width: 2.w,),
+                                  Text(
+                                    " 123458",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
                               ),
-
-                            ],
-                          ),
-
-                          Container(
-                            child: SvgPicture.asset(
-                                "assets/images/rectCheckIcon.svg"),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: Container(
-                height: 10.h,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  elevation: 10,
-                  child: Container(
-                    decoration: BoxDecoration(),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 3.w),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
                               SizedBox(height: 1.h,),
-                              Text(
-                                "Vehicles Workload",
-                                style: TextStyle(
-                                    color: AppColors.dashboardtextcolor,
-                                    fontSize: 19.sp,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(
-                                height: 1.h,
-                              ),
-                              Text(
-                                "Drivers on Duty",
-                                style: TextStyle(
-                                    color: AppColors.dashboardtextcolor,
-                                    fontSize: 15.sp),
+                              Row(mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Assigned to:",
+                                    style: TextStyle(
+                                        color: AppColors.dashboardtextcolor,
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(width: 2.w,),
+                                  Text(
+                                    " Mohammed",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
                               ),
 
                             ],
                           ),
-
-                          Container(
-                            child: SvgPicture.asset(
-                                "assets/images/carIcon.svg"),
-                          )
-                        ],
+                        ),
                       ),
-                    ),
+                      PopupMenuButton(
+                          color: Colors.black,
+                          elevation: 20,
+                          shape: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          icon: const Center(
+                            child: Icon(
+                              Icons.more_vert,
+                              color: Colors.black,
+                              size: 30,
+                            ),
+                          ),
+                          itemBuilder: (context) => [
+                            PopupMenuItem(
+                              value: 1,
+                              child: Container(
+                                child: GestureDetector(
+                                  onTap: () {
+                                    //   Routers.pushNamed(context, "/settings");
+                                  },
+                                  child: Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.add_task_outlined,
+                                        color: Colors.green,
+                                        size: 20,
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      Text(
+                                        "Re-Assign",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16.sp,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ]),
+                    ],
                   ),
                 ),
               ),
-            ),
 
-          ],
-        ),
-     ),
-
-
+            ],
+          ),
+      ),
     );
+
   }
 }

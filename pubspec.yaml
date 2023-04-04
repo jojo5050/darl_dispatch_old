@@ -42,6 +42,7 @@ dependencies:
   localization: ^2.1.0
   timeago: ^3.3.0
   intl: ^0.17.0
+  flutter_switch: ^0.3.2
 
 
 dev_dependencies:
@@ -58,9 +59,8 @@ flutter:
 
   assets:
     - assets/images/darllogo.png
+    - assets/images/bgb.png
     - assets/images/onboardbg.png
-    - assets/images/loginbg.png
-    - assets/images/signupbg.png
     - assets/images/generalDashBoardBg.png
     - assets/images/backarrowicon.svg
     - assets/images/pickupdashbg.png

@@ -1,4 +1,8 @@
+import 'package:darl_dispatch/Screens/DriversPages/driver_edit_profile.dart';
+import 'package:darl_dispatch/Screens/DriversPages/driver_settings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class DriverProfile extends StatefulWidget {
@@ -9,6 +13,8 @@ class DriverProfile extends StatefulWidget {
 }
 
 class _DriverProfileState extends State<DriverProfile> {
+  bool switchStatus = false;
+
   @override
   Widget build(BuildContext context) {
    return Scaffold(
@@ -19,14 +25,34 @@ class _DriverProfileState extends State<DriverProfile> {
                  image: AssetImage("assets/images/generalDashBoardBg.png"),
                  fit: BoxFit.cover)),
          child: Padding(
-           padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+           padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
            child: Column(
              children: [
-               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                 IconButton(onPressed: (){
-                   Navigator.of(context).pop();
-                 },
-                     icon: const Icon(Icons.arrow_back_ios, size: 30, color: Colors.black,)),
+               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+                   children: <Widget>[
+                 
+                     Column(
+                       children: [
+                         const Text("Availability", style: TextStyle(color: Colors.black87,
+                             fontWeight: FontWeight.bold),),
+                         SizedBox(height: 1.h,),
+                         FlutterSwitch(
+                           activeTextColor: Colors.white,
+                           activeColor: Colors.green,
+                           width: 80,
+                           height: 35,
+                           showOnOff: true,
+                           borderRadius: 20,
+                           toggleSize: 40,
+                           padding: 2,
+                           onToggle: (value) {
+                           setState(() {
+                             switchStatus = value;
+                           });
+                         }, value: switchStatus,),
+                       ],
+                     ),
+
                  Container(
                    height: 40,
                    width: 40,
@@ -54,7 +80,7 @@ class _DriverProfileState extends State<DriverProfile> {
                            child: Container(
                              child: GestureDetector(
                                onTap: () {
-                                 //   Routers.pushNamed(context, "/settings");
+                                 PersistentNavBarNavigator.pushNewScreen(context, screen: const DriverEditProfile());
                                },
                                child: Row(
                                  children: [
@@ -70,7 +96,36 @@ class _DriverProfileState extends State<DriverProfile> {
                                      "Edit",
                                      style: TextStyle(
                                          color: Colors.white,
-                                         fontSize: 14.sp,
+                                         fontSize: 15.sp,
+                                         fontWeight: FontWeight.bold),
+                                   ),
+                                 ],
+                               ),
+                             ),
+                           ),
+                         ),
+                         PopupMenuItem(
+                           value: 1,
+                           child: Container(
+                             child: InkWell(
+                               onTap: () {
+                                 PersistentNavBarNavigator.pushNewScreen(context, screen: DriverSettings());
+                               },
+                               child: Row(
+                                 children: [
+                                   const Icon(
+                                     Icons.settings,
+                                     color: Colors.green,
+                                     size: 20,
+                                   ),
+                                   const SizedBox(
+                                     width: 20,
+                                   ),
+                                   Text(
+                                     "Settings",
+                                     style: TextStyle(
+                                         color: Colors.white,
+                                         fontSize: 15.sp,
                                          fontWeight: FontWeight.bold),
                                    ),
                                  ],
@@ -88,18 +143,18 @@ class _DriverProfileState extends State<DriverProfile> {
                                child: Row(
                                  children: [
                                    const Icon(
-                                     Icons.settings,
-                                     color: Colors.green,
+                                     Icons.logout,
+                                     color: Colors.red,
                                      size: 20,
                                    ),
                                    const SizedBox(
                                      width: 20,
                                    ),
                                    Text(
-                                     "Settings",
+                                     "LogOut",
                                      style: TextStyle(
-                                         color: Colors.white,
-                                         fontSize: 14.sp,
+                                         color: Colors.red,
+                                         fontSize: 15.sp,
                                          fontWeight: FontWeight.bold),
                                    ),
                                  ],
@@ -113,7 +168,7 @@ class _DriverProfileState extends State<DriverProfile> {
                SizedBox(height: 2.h,),
 
                const CircleAvatar(
-                 backgroundColor: Colors.grey, radius: 70,
+                 backgroundColor: Colors.grey, radius: 60,
                  child: Icon(Icons.person, color: Colors.white, size: 30,),),
                SizedBox(height: 3.h,),
 
@@ -134,21 +189,80 @@ class _DriverProfileState extends State<DriverProfile> {
                  width: MediaQuery.of(context).size.width,
                  height: MediaQuery.of(context).size.height / 2.5,
                  decoration: BoxDecoration(
-                     gradient: const LinearGradient(colors: [Colors.indigo, Colors.lightBlueAccent],
+                     gradient: const LinearGradient(colors: [Colors.lightBlueAccent, Colors.indigo],
                          begin: Alignment.centerLeft, end: Alignment.centerRight
                      ),
                      //  color: Colors.indigo,
                      borderRadius: BorderRadius.circular(25)),
                  child: Padding(
-                   padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+                   padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 4.h),
                    child: Column(children: [
-                     Text("Driver Info", style: TextStyle(color: Colors.white, fontSize: 17.sp),),
+                     Row(
+                       children: [
+                         Text("TEL:", style: TextStyle(color: Colors.black,
+                             fontSize: 19.sp, fontWeight: FontWeight.bold),),
+                         SizedBox(width: 2.w,),
+                         Text("08109939963", style: TextStyle(color: Colors.white,
+                             fontSize: 18.sp, fontWeight: FontWeight.bold),),
+                       ],
+                     ),
+                     SizedBox(height: 2.h,),
+                     Row(
+                       children: [
+                         Text("Email:", style: TextStyle(color: Colors.black,
+                             fontSize: 18.sp, fontWeight: FontWeight.bold),),
+                         SizedBox(width: 2.w,),
+                         Text("example@gmail.com", style: TextStyle(color: Colors.white,
+                             fontSize: 18.sp, fontWeight: FontWeight.bold),),
+                       ],
+                     ),
+                     SizedBox(height: 2.h,),
+                     Row(
+                       children: [
+                         Text("A/C Name:", style: TextStyle(color: Colors.black,
+                             fontSize: 18.sp, fontWeight: FontWeight.bold),),
+                         SizedBox(width: 2.w,),
+                         Text("Peter Sam", style: TextStyle(color: Colors.white,
+                           fontSize: 18.sp, ),),
+                       ],
+                     ),
+                     SizedBox(height: 2.h, ),
+                     Row(
+                       children: [
+                         Text("A/C Number:", style: TextStyle(color: Colors.black,
+                             fontSize: 18.sp, fontWeight: FontWeight.bold),),
+                         SizedBox(width: 2.w,),
+                         Text("0900099000", style: TextStyle(color: Colors.white,
+                             fontSize: 18.sp, fontWeight: FontWeight.bold),),
+                       ],
+                     ),
 
-                   ],),
+                     SizedBox(height: 2.h, ),
+                     Row(
+                       children: [
+                         Text("Bank Name:", style: TextStyle(color: Colors.black,
+                             fontSize: 18.sp, fontWeight: FontWeight.bold),),
+                         SizedBox(width: 2.w,),
+                         Text("UBA", style: TextStyle(color: Colors.white,
+                             fontSize: 18.sp, fontWeight: FontWeight.bold),),
+                       ],
+                     ),
+
+                     SizedBox(height: 2.h, ),
+                     Row(
+                       children: [
+                         Text("Address:", style: TextStyle(color: Colors.black,
+                             fontSize: 18.sp, fontWeight: FontWeight.bold),),
+                         SizedBox(width: 2.w,),
+                         Text("Lugbe Abuja", style: TextStyle(color: Colors.white,
+                             fontSize: 18.sp, fontWeight: FontWeight.bold),),
+                       ],
+                     ),
+                    ],
+                   ),
                  ),
                )
              ],
-
            ),
          ),
        ) ,
