@@ -1,20 +1,17 @@
-import 'package:darl_dispatch/Screens/UsersPages/active_loads_preview.dart';
-import 'package:darl_dispatch/Screens/UsersPages/completed_loads_page.dart';
-import 'package:darl_dispatch/Screens/UsersPages/home_page.dart';
-import 'package:darl_dispatch/Screens/UsersPages/userProfile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
-class LandingPageManager extends StatefulWidget {
-  const LandingPageManager({Key? key}) : super(key: key);
+import '../Screens/UsersPages/home_page.dart';
+
+class AccountantLandingPageManager extends StatefulWidget {
+  const AccountantLandingPageManager({Key? key}) : super(key: key);
 
   @override
-  _LandingPageManagerState createState() => _LandingPageManagerState();
+  _AccountantLandingPageManagerState createState() => _AccountantLandingPageManagerState();
 }
 
-class _LandingPageManagerState extends State<LandingPageManager> {
+class _AccountantLandingPageManagerState extends State<AccountantLandingPageManager> {
 
   final tabController = PersistentTabController(initialIndex: 0);
 
@@ -25,41 +22,41 @@ class _LandingPageManagerState extends State<LandingPageManager> {
       onWillPop: willpopControl,
       child:*/ return PersistentTabView(context,
 
-        controller: tabController,
-        screens: _buildScreens(),
-        items: _navBarsItems(),
-        confineInSafeArea: true,
-        backgroundColor: Colors.indigo,
-        resizeToAvoidBottomInset: true,
-        popActionScreens: PopActionScreensType.all,
-        navBarHeight: MediaQuery.of(context).viewInsets.bottom > 0
-            ? 0.0
-            : kBottomNavigationBarHeight,
-        bottomScreenMargin: 0,
-        decoration: NavBarDecoration(
-            gradient: const LinearGradient(colors: [Colors.lightBlueAccent, Colors.indigo],
-                begin: Alignment.centerLeft, end: Alignment.centerRight
-            ),
-            borderRadius: BorderRadius.circular(5)),
-        itemAnimationProperties: const ItemAnimationProperties(
-          duration: Duration(milliseconds: 400),
-          curve: Curves.ease,
-        ),
+      controller: tabController,
+      screens: _buildScreens(),
+      items: _navBarsItems(),
+      confineInSafeArea: true,
+      backgroundColor: Colors.indigo,
+      resizeToAvoidBottomInset: true,
+      popActionScreens: PopActionScreensType.all,
+      navBarHeight: MediaQuery.of(context).viewInsets.bottom > 0
+          ? 0.0
+          : kBottomNavigationBarHeight,
+      bottomScreenMargin: 0,
+      decoration: NavBarDecoration(
+          gradient: const LinearGradient(colors: [Colors.lightBlueAccent, Colors.indigo],
+              begin: Alignment.centerLeft, end: Alignment.centerRight
+          ),
+          borderRadius: BorderRadius.circular(5)),
+      itemAnimationProperties: const ItemAnimationProperties(
+        duration: Duration(milliseconds: 400),
+        curve: Curves.ease,
+      ),
 
-      );
-   // );
+    );
+    // );
   }
 
   List<Widget> _buildScreens() {
     return [
-        HomePage(),
-        ActiveLoadPreview(),
-        CompletedLoadsPage(),
-        UserProfilePage()
+      HomePage(),
+  /*    ActiveLoadPreview(),
+      CompletedLoadsPage(),
+      UserProfilePage()*/
     ];
   }
 
- List<PersistentBottomNavBarItem> _navBarsItems() {
+  List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
         icon: const Icon(Icons.home, size: 30,),
@@ -67,19 +64,19 @@ class _LandingPageManagerState extends State<LandingPageManager> {
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.black,),
 
-      PersistentBottomNavBarItem(
+     /* PersistentBottomNavBarItem(
         icon: const Icon(Icons.local_shipping, size: 30,),
         title: "Active",
         textStyle: const TextStyle(fontWeight: FontWeight.bold),
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.black,
-        /* routeAndNavigatorSettings: RouteAndNavigatorSettings(
+        *//* routeAndNavigatorSettings: RouteAndNavigatorSettings(
         initialRoute: "/",
         routes: {
         "/first": (final context) => const FirstScreen(),
         "/second": (final context) => const SecondScreen(),
         },
-          ),*/
+          ),*//*
       ),
 
       PersistentBottomNavBarItem(
@@ -87,13 +84,13 @@ class _LandingPageManagerState extends State<LandingPageManager> {
         title: "Delivered", textStyle: const TextStyle(fontWeight: FontWeight.bold),
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.black,
-        /* routeAndNavigatorSettings: RouteAndNavigatorSettings(
+        *//* routeAndNavigatorSettings: RouteAndNavigatorSettings(
         initialRoute: "/",
         routes: {
           "/first": (final context) => const FirstScreen(),
           "/second": (final context) => const SecondScreen(),
         },
-      ),*/
+      ),*//*
       ),
 
       PersistentBottomNavBarItem(
@@ -101,17 +98,17 @@ class _LandingPageManagerState extends State<LandingPageManager> {
         title: "Profile", textStyle: const TextStyle(fontWeight: FontWeight.bold),
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.black,
-        /* routeAndNavigatorSettings: RouteAndNavigatorSettings(
+        *//* routeAndNavigatorSettings: RouteAndNavigatorSettings(
         initialRoute: "/",
         routes: {
           "/first": (final context) => const FirstScreen(),
           "/second": (final context) => const SecondScreen(),
         },
-      ),*/
+      ),*//*
       ),
-
+*/
     ];
- }
+  }
 
   Future<bool> willpopControl() async {
     return (await showDialog(

@@ -1,11 +1,14 @@
-import 'package:darl_dispatch/Screens/DriversPages/driver_landing_manager.dart';
+import 'package:darl_dispatch/LandingPageManagers/accountant_landing_page_manager.dart';
+import 'package:darl_dispatch/LandingPageManagers/admin_landing_page_manager.dart';
+import 'package:darl_dispatch/LandingPageManagers/driver_landing_manager.dart';
 import 'package:darl_dispatch/Screens/UsersPages/company_users_screen.dart';
 import 'package:darl_dispatch/Screens/UsersPages/drivers_on_trip_screen.dart';
 import 'package:darl_dispatch/Screens/UsersPages/home_page.dart';
-import 'package:darl_dispatch/Screens/UsersPages/landing_page_manager.dart';
+import 'package:darl_dispatch/LandingPageManagers/dispatcher_landing_page_manager.dart';
 import 'package:darl_dispatch/Screens/UsersPages/payout_screen.dart';
 import 'package:darl_dispatch/Screens/UsersPages/pickups_screen.dart';
 import 'package:darl_dispatch/Screens/UsersPages/load_details_preview.dart';
+import 'package:darl_dispatch/Screens/initial_dashboard.dart';
 import 'package:darl_dispatch/Screens/login_page.dart';
 import 'package:darl_dispatch/Screens/UsersPages/register_load.dart';
 import 'package:darl_dispatch/Screens/UsersPages/report.dart';
@@ -20,10 +23,16 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case '/general_user_dashboard':
       return MaterialPageRoute(builder: (_) => const HomePage());
 
-    case '/landingPage_manager':
-      return MaterialPageRoute(builder: (_) => const LandingPageManager());
+    case '/dispatcher_landingPage_manager':
+      return MaterialPageRoute(builder: (_) => const DispatcherLandingPageManager());
     case '/driver_landing_manager':
       return MaterialPageRoute(builder: (_) => const DriverLandingManager());
+    case '/admin_landing_manager':
+      return MaterialPageRoute(builder: (_) => const AdminLandingPageManager());
+    case '/accountant_landing_manager':
+      return MaterialPageRoute(builder: (_) => const AccountantLandingPageManager());
+    case '/initial_dashboard':
+      return MaterialPageRoute(builder: (_) => const InitialDashboard());
 
     case '/login_page':
       return MaterialPageRoute(builder: (_) => const LoginPage());

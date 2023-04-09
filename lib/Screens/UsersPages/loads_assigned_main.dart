@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../Constants/colors.dart';
+import '../../ConstantHelper/colors.dart';
+
 
 class AssingedLoadsMain  extends StatefulWidget {
   const AssingedLoadsMain({Key? key}) : super(key: key);

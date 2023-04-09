@@ -1,10 +1,11 @@
-import 'package:darl_dispatch/Constants/colors.dart';
+
 import 'package:darl_dispatch/Screens/UsersPages/register_load.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../ConstantHelper/colors.dart';
 import 'delivered_loads_preview.dart';
 import 'drivers_on_trip_screen.dart';
 import 'loads_assign_preview.dart';

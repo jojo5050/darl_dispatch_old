@@ -1,6 +1,5 @@
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:country_state_city_picker/country_state_city_picker.dart';
-import 'package:darl_dispatch/Constants/colors.dart';
 import 'package:darl_dispatch/Screens/UsersPages/load_details_preview.dart';
 import 'package:darl_dispatch/Utils/routers.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +7,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:intl/intl.dart';
+
+import '../../ConstantHelper/colors.dart';
 
 class RegisterLoad extends StatefulWidget {
   const RegisterLoad({Key? key}) : super(key: key);

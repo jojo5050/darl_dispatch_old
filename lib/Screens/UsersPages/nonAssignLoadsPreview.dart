@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../Constants/colors.dart';
+import '../../ConstantHelper/colors.dart';
 import 'loads_assign_preview.dart';
 
 class NonAssignLoadsPreview extends StatefulWidget {

@@ -1,7 +1,9 @@
-import 'package:darl_dispatch/Constants/colors.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+import '../../ConstantHelper/colors.dart';
 
 class PayOut extends StatefulWidget {
   const PayOut({Key? key}) : super(key: key);

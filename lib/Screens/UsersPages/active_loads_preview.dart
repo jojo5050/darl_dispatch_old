@@ -1,4 +1,4 @@
-import 'package:darl_dispatch/Constants/colors.dart';
+
 import 'package:darl_dispatch/Screens/UsersPages/activeloads_main.dart';
 import 'package:darl_dispatch/Screens/UsersPages/loads_assign_preview.dart';
 import 'package:darl_dispatch/Screens/UsersPages/nonAssignLoadsPreview.dart';
@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+import '../../ConstantHelper/colors.dart';
 
 class ActiveLoadPreview extends StatefulWidget {
   const ActiveLoadPreview({Key? key}) : super(key: key);

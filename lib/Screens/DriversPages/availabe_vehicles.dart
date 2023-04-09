@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../Constants/colors.dart';
+import '../../ConstantHelper/colors.dart';
 
 class AvailableVehicles extends StatefulWidget {
   const AvailableVehicles({Key? key}) : super(key: key);

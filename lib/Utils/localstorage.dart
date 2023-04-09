@@ -27,7 +27,7 @@ class LocalStorage {
 
   Future<Database> _getDatabase() async {
     Directory dir = await getApplicationDocumentsDirectory();
-    String dbPath = dir.path + "/fanect_mobile_user.db";
+    String dbPath = "${dir.path}/darl_dispatch.db";
 
     DatabaseFactory factory = databaseFactoryIo;
 

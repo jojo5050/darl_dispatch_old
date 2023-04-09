@@ -36,13 +36,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         decoration: TextDecoration.none),),
                 ),
                 SizedBox(height: 45.h,),
-                TextButton(onPressed: (){
-                  Routers.pushNamed(context, "/driver_landing_manager");
-                },
-                    child: Text("Driver Section",
-                      style: TextStyle(color: Colors.white,
-                          fontSize: 19.sp, fontWeight: FontWeight.bold),)),
-                SizedBox(height: 10.h,),
 
                 ElevatedButton(
                   onPressed: () {

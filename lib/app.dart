@@ -1,8 +1,8 @@
-import 'package:darl_dispatch/AuthManagers/authProvider.dart';
+import 'package:darl_dispatch/Providers/authProvider.dart';
 import 'package:darl_dispatch/AuthManagers/providers.dart';
 import 'package:darl_dispatch/Models/user.dart';
 import 'package:darl_dispatch/Screens/UsersPages/company_users_screen.dart';
-import 'package:darl_dispatch/Screens/UsersPages/landing_page_manager.dart';
+import 'package:darl_dispatch/LandingPageManagers/dispatcher_landing_page_manager.dart';
 import 'package:darl_dispatch/Screens/onboarding_page.dart';
 import 'package:darl_dispatch/Screens/UsersPages/register_load.dart';
 import 'package:darl_dispatch/Screens/splash_screen.dart';
@@ -14,8 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-
-import 'Constants/colors.dart';
+import 'ConstantHelper/colors.dart';
 import 'Screens/UsersPages/pickups_screen.dart';
 
 class App extends StatefulWidget {
