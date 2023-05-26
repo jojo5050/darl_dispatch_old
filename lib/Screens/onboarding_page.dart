@@ -14,55 +14,61 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-        onWillPop: willPopController,
-        child: Scaffold(
-          body: Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/images/onboardbg.png"), fit: BoxFit.cover)),
-              child: Column(children: [
-                SizedBox(height: 12.h,),
-                Center(
-                  child: Text("Welcome", style: TextStyle(color: Colors.white,
-                      fontSize: 31.sp, fontWeight: FontWeight.normal, fontFamily: 'Interfont',
-                      decoration: TextDecoration.none),),
+
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+            Container(
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/onboardbg.png"), fit: BoxFit.cover))),
+
+               SingleChildScrollView(
+                child: Container(
+                  color: Colors.transparent,
+                  child: Column(children: <Widget>[
+                    SizedBox(height: 12.h,),
+                    Center(
+                      child: Text("Welcome", style: TextStyle(color: Colors.white,
+                          fontSize: 31.sp, fontWeight: FontWeight.normal, fontFamily: 'Interfont',
+                          decoration: TextDecoration.none),),
+                    ),
+                    SizedBox(height: 1.h,),
+
+                    Center(
+                      child: Text("Smart Logistics Company",
+                        style: TextStyle(color: Colors.white,
+                            fontSize: 16.sp, fontWeight: FontWeight.bold, fontFamily: 'Interfont',
+                            decoration: TextDecoration.none),),
+                    ),
+                    SizedBox(height: 60.h,),
+
+                    ElevatedButton(
+                      onPressed: () {
+                        Routers.pushNamed(context, "/sign_up_page");
+
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        //  onPrimary: Colors.white,
+                        //  splashFactory: InkRipple.splashFactory,
+                        primary: Colors.blue,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 28.w, vertical: 2.h),),
+                      child: Text("Get Started",
+                        style: TextStyle(color: Colors.white,
+                            fontSize: 16.sp, fontWeight: FontWeight.bold),),
+
+                    ),
+
+                  ],),
                 ),
-                SizedBox(height: 1.h,),
-                Center(
-                  child: Text("Fastest Logistics Company",
-                    style: TextStyle(color: Colors.white,
-                        fontSize: 16.sp, fontWeight: FontWeight.normal, fontFamily: 'Interfont',
-                        decoration: TextDecoration.none),),
-                ),
-                SizedBox(height: 45.h,),
-
-                ElevatedButton(
-                  onPressed: () {
-                    Routers.pushNamed(context, "/sign_up_page");
-
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                  //  onPrimary: Colors.white,
-                  //  splashFactory: InkRipple.splashFactory,
-                    primary: Colors.blue,
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 20.w, vertical: 2.h),),
-                  child: Text("Get Started",
-                    style: TextStyle(color: Colors.white,
-                        fontSize: 16.sp, fontWeight: FontWeight.bold),),
-
-                ),
-                SizedBox(height: 2.h,),
-
-
-               ],
               ),
-          ),
-        ),
-      );
+        ],
+      ),
+
+    );
   }
 
   Future<bool> willPopController() async {

@@ -1,17 +1,21 @@
 import 'dart:io';
-import 'package:darl_dispatch/Utils/horizontalProgressBar.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:hive/hive.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:darl_dispatch/app.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  initialize(const HorizontalProgressBar());
+  await Firebase.initializeApp();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  initialize();
   runApp(const App());
 }
 
-void initialize(HorizontalProgressBar horizontalProgressBar) async{
+void initialize() async{
 
   var path = Directory.current.path;
   var dir = await getApplicationDocumentsDirectory();

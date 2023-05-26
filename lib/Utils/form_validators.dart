@@ -51,6 +51,53 @@ mixin FormValidators{
     return null;
   }
 
+  String? validatePhoneNum(String? value) {
+    if (value!.trim().isEmpty) {
+      return 'phone number field cannot be empty';
+    } else if (value.length > 11 || value.length < 11) {
+      return 'Phone number is not valid';
+    }
+
+    return null;
+  }
+  String? validateAccNum(String? value) {
+    if (value!.trim().isEmpty) {
+      return 'Account Number field cannot be empty';
+    } else if (value.length > 10 || value.length < 10) {
+      return 'Account number is not valid';
+    }
+
+    return null;
+  }
+
+  String? validateBankName(String? value) {
+    if (value!.trim().isEmpty) {
+      return 'Bank Name can not be empty';
+    } else if (value.trim().length < 2) {
+      return 'Bank Name is Invalid';
+    }
+    return null;
+  }
+  String? validateAccName(String? value) {
+    if (value!.trim().isEmpty) {
+      return 'Account Name can not be empty';
+    } else if (value.trim().length < 2) {
+      return 'Account Name is Invalid';
+    }
+    return null;
+  }
+  String? validateLicence(String? value) {
+    if (value!.trim().isEmpty) {
+      return 'licence ID can not be empty';
+    }
+    return null;
+  }
+
+  String? validateAddress(String? value) {
+    if (value!.trim().isEmpty) return 'Address can not be empty';
+    return null;
+  }
+
   String? validateFullName(String? value) {
     if (value!.trim().isEmpty) {
       return 'Fullname can not be empty';
@@ -68,6 +115,19 @@ mixin FormValidators{
       return 'Name can not be less than 2 characters';
     }
 
+    return null;
+  }
+  String? validateZipCode(String? value) {
+    if (value!.trim().isEmpty) {
+      return 'Zipcode field cannot be empty';
+    }
+    return null;
+  }
+
+  String? validateDate(String? value) {
+    if (value!.trim().isEmpty) {
+      return 'Date field cannot be empty';
+    }
     return null;
   }
   String? validateUsername(String? value) {
@@ -101,6 +161,5 @@ mixin FormValidators{
     }
     return null;
   }
-
 
 }

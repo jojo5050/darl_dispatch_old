@@ -55,9 +55,9 @@ class _AuthCheckerState extends State<AuthChecker> {
       User user = User();
 
       try {
-        dynamic _userinfo = await LocalStorage().fetch("user_info");
+        dynamic _userinfo = await LocalStorage().fetch("userData");
         accessToken = await (LocalStorage().fetch("token")) ?? "";
-        uRole = await (LocalStorage().fetch("role_key")) ?? "";
+        uRole = await (LocalStorage().fetch("roleKey")) ?? "";
 
         if (_userinfo != null) {
           user = User.fromJson(Map<String, dynamic>.from(_userinfo));
@@ -69,14 +69,14 @@ class _AuthCheckerState extends State<AuthChecker> {
         debugPrint("StackTrace$str");
       }
 
-      return {"token": accessToken, "user": user, "role_key": uRole};
+      return {"token": accessToken, "user": user, "roleKey": uRole};
     });
   }
 
   bool checkAuthenticatedDispatcher(data) {
     if (data["token"] != null &&
         data["user"] != null &&
-        data["role_key"] == "Despatcher" &&
+        data["roleKey"] == "Despatcher" &&
         data["token"] != "" &&
         data["user"] != "") return true;
 
@@ -87,7 +87,7 @@ class _AuthCheckerState extends State<AuthChecker> {
   bool checkAuthenticatedDriver(data) {
     if (data["token"] != null &&
         data["user"] != null &&
-        data["role_key"] == "Driver" &&
+        data["roleKey"] == "Driver" &&
         data["token"] != "" &&
         data["user"] != "") return true;
 
@@ -98,7 +98,7 @@ class _AuthCheckerState extends State<AuthChecker> {
   bool checkAuthenticatedAccountant(data) {
     if (data["token"] != null &&
         data["user"] != null &&
-        data["role_key"] == "Accountant" &&
+        data["roleKey"] == "Accountant" &&
         data["token"] != "" &&
         data["user"] != "") return true;
 
@@ -109,7 +109,7 @@ class _AuthCheckerState extends State<AuthChecker> {
   bool checkAuthenticatedAdmin(data) {
     if (data["token"] != null &&
         data["user"] != null &&
-        data["role_key"] == "Admin" &&
+        data["roleKey"] == "Admin" &&
         data["token"] != "" &&
         data["user"] != "") return true;
 

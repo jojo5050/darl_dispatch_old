@@ -1,11 +1,11 @@
 import 'package:darl_dispatch/Screens/UsersPages/non_assigned_loads_main.dart';
+import 'package:darl_dispatch/Utils/routers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../ConstantHelper/colors.dart';
-import 'loads_assign_preview.dart';
+import '../Admin/Loads/loads_assigned_preview.dart';
 
 class NonAssignLoadsPreview extends StatefulWidget {
   const NonAssignLoadsPreview({Key? key}) : super(key: key);
@@ -69,8 +69,8 @@ class _NonAssignLoadsPreviewState extends State<NonAssignLoadsPreview> {
                       value: 1,
                       child: Container(
                         child: InkWell(
-                          onTap: () {
-                              PersistentNavBarNavigator.pushNewScreen(context, screen: LoadsAssignedPreview());
+                          onTap: () {Routers.pushNamed(context,  '/loadsAssignedPreview');
+
                           },
                           child: Row(
                             children: [
@@ -100,7 +100,8 @@ class _NonAssignLoadsPreviewState extends State<NonAssignLoadsPreview> {
 
              SizedBox(height: 4.h,),
           InkWell(onTap: () {
-            PersistentNavBarNavigator.pushNewScreen(context, screen: NonAssignedLoadsMain());
+            Routers.pushNamed(context, '/nonAssignedLoadsMain');
+
           },
             child: Container(
               height: 12.h,

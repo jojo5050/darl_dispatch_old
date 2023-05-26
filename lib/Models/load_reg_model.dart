@@ -1,15 +1,19 @@
 import 'package:flutter/cupertino.dart';
   class LoadRegistrationModel {
 
-    TextEditingController loadConfController = TextEditingController();
-    TextEditingController rateConfController = TextEditingController();
+    TextEditingController rateConfirmController = TextEditingController();
+    TextEditingController amountController = TextEditingController();
     TextEditingController weightController = TextEditingController();
     TextEditingController loadDiscrController = TextEditingController();
 
     TextEditingController brokerNameController = TextEditingController();
     TextEditingController brokerEmailController = TextEditingController();
-    TextEditingController brokerAddressController = TextEditingController();
     TextEditingController brokerPhoneController = TextEditingController();
+
+    TextEditingController shipperEmailController = TextEditingController();
+    TextEditingController shipperAddressController = TextEditingController();
+
+    TextEditingController despatcherNameController = TextEditingController();
 
     TextEditingController pickupOneZipCodeController = TextEditingController();
     TextEditingController pickupTwoZipCodeController = TextEditingController();

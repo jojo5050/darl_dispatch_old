@@ -1,6 +1,6 @@
+import 'package:darl_dispatch/Utils/routers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../ConstantHelper/colors.dart';
@@ -43,7 +43,8 @@ class _AllDispatcherState extends State<AllDispatcher> {
 
             SizedBox(height: 2.h,),
             InkWell(onTap: () {
-              PersistentNavBarNavigator.pushNewScreen(context, screen: ClientProfilePage());
+              Routers.pushNamed(context, '/clientProfilePage');
+
             },
               child: Container(
                 height: 10.h,

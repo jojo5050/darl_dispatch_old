@@ -10,8 +10,8 @@ class ProgressBar extends StatelessWidget {
       color: Colors.transparent,
       margin: const EdgeInsets.only(left: 70, right: 70),
       child: const Center(
-        child: SpinKitSpinningLines(
-          color: Colors.green,
+        child: SpinKitRotatingCircle(
+          color: Colors.indigo,
           size: 50,
         ),
       ),

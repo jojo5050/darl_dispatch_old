@@ -2,13 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ClientProfilePage extends StatefulWidget {
-  const ClientProfilePage({Key? key}) : super(key: key);
+
+  final Map<String, dynamic> staffInfo;
+  const ClientProfilePage({Key? key, required this.staffInfo}) : super(key: key);
 
   @override
   State<ClientProfilePage> createState() => _ClientProfilePageState();
 }
 
 class _ClientProfilePageState extends State<ClientProfilePage> {
+
+  Map<String, dynamic> staffInfo = {};
+
+  @override
+  void initState() {
+    staffInfo = widget.staffInfo;
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +37,7 @@ class _ClientProfilePageState extends State<ClientProfilePage> {
                     Navigator.of(context).pop();
                   },
                       icon: const Icon(Icons.arrow_back_ios, size: 30, color: Colors.black,)),
-                  Container(
+                  /*Container(
                     height: 40,
                     width: 40,
                     decoration: BoxDecoration(
@@ -108,7 +118,7 @@ class _ClientProfilePageState extends State<ClientProfilePage> {
                             ),
                           ),
                         ]),
-                  ),
+                  ),*/
                 ]),
                 SizedBox(height: 2.h,),
 
@@ -119,13 +129,13 @@ class _ClientProfilePageState extends State<ClientProfilePage> {
 
                 Row(mainAxisAlignment: MainAxisAlignment.center,
                   children:  [
-                    Text("Peter Pan", style: TextStyle(
+                    Text("${staffInfo["name"]}", style: TextStyle(
                         color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18.sp),)
                   ],),
                 SizedBox(height: 2.h,),
                 Row(mainAxisAlignment: MainAxisAlignment.center,
                   children:  [
-                    Text("Driver", style: TextStyle(
+                    Text("${staffInfo["role"]}", style: TextStyle(
                         color: Colors.black, fontWeight: FontWeight.bold,
                         fontStyle: FontStyle.italic, fontSize: 18.sp),)
                   ],),
@@ -142,11 +152,30 @@ class _ClientProfilePageState extends State<ClientProfilePage> {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                     child: Column(children: [
-                      Text("More User Information", style: TextStyle(color: Colors.white, fontSize: 17.sp),),
+                      Text("${staffInfo["tel"]}", style: TextStyle(color: Colors.white, fontSize: 17.sp),),
                       SizedBox(height: 5.h,),
-                      Text("More User Information", style: TextStyle(color: Colors.white, fontSize: 17.sp),),
-                      SizedBox(height: 5.h,),
-                      Text("More User Information", style: TextStyle(color: Colors.white, fontSize: 17.sp),),
+                      Text("${staffInfo["email"]}", style: TextStyle(color: Colors.white, fontSize: 17.sp),),
+                      SizedBox(height: 13.h,),
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: Colors.green[500],
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  side: BorderSide.none)),
+                          onPressed: () {
+
+                          },
+                          child: Padding(
+                            padding:
+                            EdgeInsets.symmetric(horizontal: 25.w, vertical: 2.h),
+                            child: Text(
+                              "CHAT",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          )),
                     ],),
                   ),
                 )

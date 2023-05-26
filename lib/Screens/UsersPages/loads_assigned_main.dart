@@ -252,10 +252,10 @@ class _AssingedLoadsMainState extends State<AssingedLoadsMain> {
                           ),
                           const Divider(
                             color: Colors.black,
-                            height: 5,
-                            thickness: 2,
-                            indent: 20,
-                            endIndent: 20,
+                            height: 10,
+                            thickness: 5,
+                            indent: 100,
+                            endIndent: 100,
                           ),
 
                           SizedBox(

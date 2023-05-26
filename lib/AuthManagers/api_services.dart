@@ -17,6 +17,7 @@ mixin ApiServices{
   static final Map<String, String> _requestHeaders = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
+
   };
 
   Future<Dio> getDio() async {

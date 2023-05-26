@@ -34,15 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Center(
             child: AnimatedTextKit(
               animatedTexts: [
-                TypewriterAnimatedText("FAST",
-                    textStyle: TextStyle(color: Colors.black, fontSize: 25.sp,
-                        decoration: TextDecoration.none,
-                        fontFamily: "Customfont") ),
-                TypewriterAnimatedText("SAFE",
-                    textStyle: TextStyle(color: Colors.black, fontSize: 25.sp,
-                        decoration: TextDecoration.none,
-                        fontFamily: "Customfont") ),
-                TypewriterAnimatedText("RELIABLE",
+                TypewriterAnimatedText("SMART",
                     textStyle: TextStyle(color: Colors.black, fontSize: 25.sp,
                         decoration: TextDecoration.none,
                         fontFamily: "Customfont") ),
@@ -64,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void delayAndNavigate() {
 
-      Timer(const Duration(seconds: 6), ()=> Navigator
+      Timer(const Duration(seconds: 3), ()=> Navigator
           .pushReplacement(context, MaterialPageRoute(builder: (context){
            return const AuthChecker();
       })));

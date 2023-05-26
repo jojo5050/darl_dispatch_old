@@ -1,21 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:darl_dispatch/Providers/authProvider.dart';
 import 'package:darl_dispatch/AuthManagers/providers.dart';
 import 'package:darl_dispatch/Models/user.dart';
-import 'package:darl_dispatch/Screens/UsersPages/company_users_screen.dart';
-import 'package:darl_dispatch/LandingPageManagers/dispatcher_landing_page_manager.dart';
-import 'package:darl_dispatch/Screens/onboarding_page.dart';
-import 'package:darl_dispatch/Screens/UsersPages/register_load.dart';
 import 'package:darl_dispatch/Screens/splash_screen.dart';
-import 'package:darl_dispatch/Screens/success_screen.dart';
-import 'package:darl_dispatch/Utils/horizontalProgressBar.dart';
 import 'package:darl_dispatch/Utils/localstorage.dart';
 import 'package:darl_dispatch/Utils/routes.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'ConstantHelper/colors.dart';
-import 'Screens/UsersPages/pickups_screen.dart';
+import 'Screens/Chat/chat_list_provider.dart';
+
+
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -25,11 +23,32 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+ // late final SharedPreferences prefs;
+  final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+  final FirebaseStorage firebaseStorage = FirebaseStorage.instance;
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: Providers.getProvider,
-      builder: (_, __) => MaterialApp(
+      providers: [ChangeNotifierProvider<AuthProvider>(
+          create: (_) => AuthProvider()),
+
+        Provider<ChatProvider>(
+          create: (_) => ChatProvider(
+          //  prefs: this.prefs,
+            firebaseFirestore: this.firebaseFirestore,
+            firebaseStorage: this.firebaseStorage,
+          ),
+        ),
+        Provider<ChatListProvider>(
+          create: (_) => ChatListProvider(
+            //  prefs: this.prefs,
+            firebaseFirestore: this.firebaseFirestore,
+          ),
+        ),
+
+      ],
+      child: MaterialApp(
         title: "Darl Dispatch",
         theme: ThemeData(
            fontFamily: 'Interfont',
@@ -41,35 +60,8 @@ class _AppState extends State<App> {
         home: ResponsiveSizer(
           builder: (context, orientation, screenType) {
             return const SplashScreen();
-
-         /*   FutureBuilder(
-                future: fetchConfirmationData(context),
-                builder: (buildContext, snapshot) {
-                  if (snapshot.hasData) {
-                    if (snapshot.data != null) {
-                      // if(snapshot.data["token"] != null)
-                      if (checkAuthenticated(snapshot.data)) {
-                        return LandingPageManager();
-                      }
-                    }
-                    return const OnboardingPage();
-                  } else {
-                    return SplashScreen();
-
-                  }
-                }
-
-                );*/
-
           },
         ),
-        initialRoute: "/",
-        routes: {
-          "/first": (final context) => const PickUps(),
-          "/second": (final context) => const RegisterLoad(),
-          "/third": (final context) => const CompanyUsers(),
-
-        },
         onGenerateRoute: generateRoute,
       ),
     );

@@ -1,13 +1,17 @@
-import 'package:darl_dispatch/Screens/UsersPages/active_loads_preview.dart';
-import 'package:darl_dispatch/Screens/UsersPages/completed_loads_page.dart';
-import 'package:darl_dispatch/Screens/UsersPages/home_page.dart';
-import 'package:darl_dispatch/Screens/UsersPages/userProfile_page.dart';
+import 'package:circle_bottom_navigation_bar/circle_bottom_navigation_bar.dart';
+import 'package:circle_bottom_navigation_bar/widgets/tab_data.dart';
+import 'package:darl_dispatch/Models/global_variables.dart';
+import 'package:darl_dispatch/Screens/Despatcher/active_loads_preview.dart';
+import 'package:darl_dispatch/Screens/Despatcher/completed_loads_page.dart';
+import 'package:darl_dispatch/Screens/Despatcher/despatcher_home_page.dart';
+import 'package:darl_dispatch/Screens/Despatcher/despatcher_Profile_page.dart';
+import 'package:darl_dispatch/Screens/Chat/chat_users_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+
 class DispatcherLandingPageManager extends StatefulWidget {
+
   const DispatcherLandingPageManager({Key? key}) : super(key: key);
 
   @override
@@ -16,133 +20,100 @@ class DispatcherLandingPageManager extends StatefulWidget {
 
 class _DispatcherLandingPageManagerState extends State<DispatcherLandingPageManager> {
 
-  final tabController = PersistentTabController(initialIndex: 0);
+  int selectedIndex = 0;
 
+  static const List<Widget> _pages = <Widget>[
+    DespatcherHomePage(),
+    ActiveLoadPreview(),
+    ChatUsersList(),
+    CompletedLoadsPage(),
+    DispatcherProfilePage()
+  ];
 
   @override
   Widget build(BuildContext context) {
-    /*return WillPopScope(
-      onWillPop: willpopControl,
-      child:*/ return PersistentTabView(context,
 
-        controller: tabController,
-        screens: _buildScreens(),
-        items: _navBarsItems(),
-        confineInSafeArea: true,
-        backgroundColor: Colors.indigo,
-        resizeToAvoidBottomInset: true,
-        popActionScreens: PopActionScreensType.all,
-        navBarHeight: MediaQuery.of(context).viewInsets.bottom > 0
-            ? 0.0
-            : kBottomNavigationBarHeight,
-        bottomScreenMargin: 0,
-        decoration: NavBarDecoration(
-            gradient: const LinearGradient(colors: [Colors.lightBlueAccent, Colors.indigo],
-                begin: Alignment.centerLeft, end: Alignment.centerRight
-            ),
-            borderRadius: BorderRadius.circular(5)),
-        itemAnimationProperties: const ItemAnimationProperties(
-          duration: Duration(milliseconds: 400),
-          curve: Curves.ease,
-        ),
+    final size = MediaQuery.of(context).size;
+    final viewPadding = MediaQuery.of(context).viewPadding;
+    double barHeight;
+    double barHeightWithNotch = 67;
+    double arcHeightWithNotch = 67;
 
-      );
-   // );
+    if (size.height > 700) {
+      barHeight = 62;
+    } else {
+      barHeight = size.height * 0.1;
+    }
+
+    if (viewPadding.bottom > 0) {
+      barHeightWithNotch = (size.height * 0.07) + viewPadding.bottom;
+      arcHeightWithNotch = (size.height * 0.075) + viewPadding.bottom;
+    }
+
+
+    return Scaffold(
+      body: _pages[selectedIndex],
+      bottomNavigationBar: CircleBottomNavigationBar(
+        initialSelection: selectedIndex,
+        barHeight: viewPadding.bottom > 0 ? barHeightWithNotch : barHeight,
+        arcHeight: viewPadding.bottom > 0 ? arcHeightWithNotch : barHeight,
+        itemTextOff: viewPadding.bottom > 0 ? 0 : 1,
+        itemTextOn: viewPadding.bottom > 0 ? 0 : 1,
+        circleOutline: 15.0,
+        shadowAllowance: 0.0,
+        circleSize: 50.0,
+        blurShadowRadius: 50.0,
+        circleColor: Colors.white,
+        activeIconColor: Colors.blueAccent,
+        inactiveIconColor: Colors.black,
+        textColor: Colors.black,
+        hasElevationShadows: true,
+
+        barBackgroundColor: Colors.white,
+        tabs: getTabsData(),
+        onTabChangedListener: (index) => setState(() => selectedIndex = index),
+      ),
+    );
   }
 
-  List<Widget> _buildScreens() {
+
+  List<TabData> getTabsData() {
     return [
-        HomePage(),
-        ActiveLoadPreview(),
-        CompletedLoadsPage(),
-        UserProfilePage()
+      TabData(
+        icon: Icons.home,
+        iconSize: 20.0,
+        title: 'Home',
+        fontSize: 15.sp,
+        fontWeight: FontWeight.bold,
+      ),
+      TabData(
+        icon: Icons.local_shipping,
+        iconSize: 20.0,
+        title: 'Active',
+        fontSize: 15.sp,
+        fontWeight: FontWeight.bold,
+      ),
+      TabData(
+        icon: Icons.message,
+        iconSize: 20.0,
+        title: 'Chat',
+        fontSize: 15.sp,
+        fontWeight: FontWeight.bold,
+      ),
+      TabData(
+        icon: Icons.check_circle,
+        iconSize: 20.0,
+        title: 'Delivered',
+        fontSize: 15.sp,
+        fontWeight: FontWeight.bold,
+      ),
+      TabData(
+        icon: Icons.person,
+        iconSize: 20.0,
+        title: 'Profile',
+        fontSize: 15.sp,
+        fontWeight: FontWeight.bold,
+      ),
     ];
-  }
-
- List<PersistentBottomNavBarItem> _navBarsItems() {
-    return [
-      PersistentBottomNavBarItem(
-        icon: const Icon(Icons.home, size: 30,),
-        title: "Home", textStyle: const TextStyle(fontWeight: FontWeight.bold),
-        activeColorPrimary: Colors.white,
-        inactiveColorPrimary: Colors.black,),
-
-      PersistentBottomNavBarItem(
-        icon: const Icon(Icons.local_shipping, size: 30,),
-        title: "Active",
-        textStyle: const TextStyle(fontWeight: FontWeight.bold),
-        activeColorPrimary: Colors.white,
-        inactiveColorPrimary: Colors.black,
-        /* routeAndNavigatorSettings: RouteAndNavigatorSettings(
-        initialRoute: "/",
-        routes: {
-        "/first": (final context) => const FirstScreen(),
-        "/second": (final context) => const SecondScreen(),
-        },
-          ),*/
-      ),
-
-      PersistentBottomNavBarItem(
-        icon: const Icon(Icons.check_circle, size: 30,),
-        title: "Delivered", textStyle: const TextStyle(fontWeight: FontWeight.bold),
-        activeColorPrimary: Colors.white,
-        inactiveColorPrimary: Colors.black,
-        /* routeAndNavigatorSettings: RouteAndNavigatorSettings(
-        initialRoute: "/",
-        routes: {
-          "/first": (final context) => const FirstScreen(),
-          "/second": (final context) => const SecondScreen(),
-        },
-      ),*/
-      ),
-
-      PersistentBottomNavBarItem(
-        icon: const Icon(Icons.person, size: 30,),
-        title: "Profile", textStyle: const TextStyle(fontWeight: FontWeight.bold),
-        activeColorPrimary: Colors.white,
-        inactiveColorPrimary: Colors.black,
-        /* routeAndNavigatorSettings: RouteAndNavigatorSettings(
-        initialRoute: "/",
-        routes: {
-          "/first": (final context) => const FirstScreen(),
-          "/second": (final context) => const SecondScreen(),
-        },
-      ),*/
-      ),
-
-    ];
- }
-
-  Future<bool> willpopControl() async {
-    return (await showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        //  title: new Text('Are you sure?'),
-        content: new Text('Do you want to exit the App'),
-        actions: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(false),
-                child: new Text('No'),
-              ),
-              TextButton(
-                onPressed: () => exitApp(),
-                child: new Text('Yes'),
-              ),
-            ],
-          ),
-        ],
-      ),
-    )) ??
-        false;
-  }
-
-  exitApp() {
-    Future.delayed(const Duration(milliseconds: 1000), () {
-      SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-    });
-
   }
 }
